@@ -1,0 +1,532 @@
+@media (max-width: 1200px)
+  .header
+    &-menu
+      width: 65%
+      &__item
+        font-size: 18px
+@media (max-width: 992px)
+  .header
+    &-menu
+      width: 75%
+      &__item
+        font-size: 16px
+    &-logo
+  .portfolio
+    &-screenshots
+      flex-direction: column
+      align-items: flex-start
+    &-header
+      display: flex
+      &-menu
+        list-style-type: none
+        display: flex
+        margin: 10px 0
+        padding: 0
+        &__item
+          text-align: center
+          display: block
+          width: 220px
+@media (max-width: 768px)
+  .container
+    &-training
+      flex-direction: column
+    &-navbar
+      display: flex
+      align-items: center
+      min-height: 64px
+      margin: 8px auto 0
+      max-width: 84%
+      &__bottom
+        padding-top: 0px
+        margin-bottom: 0
+        height: 100vh
+        width: 100%
+        min-height: 100%
+        min-width: 100%
+        display: flex
+        align-items: flex-start
+        justify-content: center
+        padding-top: 22px
+        background-color: #183B56
+    &-portfolio
+      padding: 77px 0
+    &-thankyou
+      justify-content: center
+  .header
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    z-index: 99
+    background-color: #fff
+    &-navbar
+      position: fixed
+      top: 0
+      right: 0
+      left: 0
+      z-index: 99
+      background-color: #fff
+      padding: 0 5%
+    &-menu
+      display: none
+      &__link
+        color: #FFFFFF
+    &-main
+      margin: 180px auto
+      display: flex
+      &--thankyou
+        height: 350px
+        margin: 0 auto
+      &-title
+        font-size: 40px
+        line-height: 42px
+      &-subtitle
+        font-size: 24px
+        line-height: 32px
+      &__text
+        &-block
+          flex-basis: 50%
+          margin: 0 10px 0 0
+      &-text
+        font-size: 18px
+        line-height: 24px
+  .navbar
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    z-index: 99
+    background-color: #fff
+    &-menu
+      &__item
+        margin-bottom: 26px
+  .menu
+    &-button
+      display: flex
+      width: 22px
+      height: 18px
+      padding: 0
+      align-items: center
+      justify-content: space-between
+      flex-direction: column
+      border: none
+      background-color: #fff
+      cursor: pointer
+      outline: none
+    &-close
+      display: flex
+      width: 24px
+      height: 16px
+      padding: 0
+      align-items: center
+      justify-content: space-between
+      flex-direction: column
+      border: none
+      background-color: #fff
+      cursor: pointer
+      outline: none
+  .lang
+    &-block
+      display: none
+      &-bottom
+        display: flex
+  .skills
+    &-wrapper
+      width: 100%
+    &-title
+      font-size: 32px
+    &-text
+      font-size: 18px
+      line-height: 26px
+  .training
+    &-wrapper
+      width: 100%
+    &-certificate
+      &--1, &--2, &--3
+        width: 30%
+    &-certificates
+      &-block
+        min-height: auto
+        flex-direction: row
+        justify-content: center
+    &-title
+      font-size: 32px
+    &-text
+      font-size: 14px
+      line-height: 20px
+  .works
+    &-wrapper
+      width: 100%
+    &-title
+      font-size: 26px
+    &-text
+      font-size: 14px
+      line-height: 20px
+  .training
+    &-wrapper
+      flex-basis: 100%
+  .portfolio
+    &-header
+      &-menu
+        &__item
+          font-size: 16px
+          &--active
+            font-size: 16px
+            font-weight: 600
+    &-wrapper
+      width: 100%
+      flex-direction: column
+    &-screen
+      height: auto
+      /*width: 80%*/
+    &-title
+      font-size: 32px
+    &-text
+      font-size: 14px
+      line-height: 20px
+    &-slider
+      width: 400px
+      height: 400px
+      margin: 0 auto
+    &-buttons
+      &-block
+        width: 95%
+      &__image
+        &--right, &--left
+          width: 25px
+          height: 25px
+    &-qutuva
+      &__link
+        font-size: 14px
+    &-georg
+      &__link
+        font-size: 14px
+  .georg
+    &-wrapper
+      width: 100%
+      flex-direction: column
+    &-screen
+      height: auto
+      width: 80%
+    &-title
+      font-size: 32px
+    &-text
+      font-size: 14px
+      line-height: 20px
+    &-slider
+      margin: 0 auto
+    &-buttons
+      &-block
+        width: 95%
+      &__image
+        &--right, &--left
+          width: 25px
+          height: 25px
+  .footer
+    &-title
+      font-size: 32px
+    &-subtitle
+      font-size: 16px
+      line-height: 20px
+    &-text
+      font-size: 14px
+      line-height: 20px
+    &-contacts
+      flex-basis: 36%
+      &-email
+        font-size: 16px
+        &__link
+          &--email
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 10px 0 0
+      &-phone
+        font-size: 16px
+        &__link
+          &--num
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 15px 0 0
+      &-telegram
+        font-size: 16px
+        &__link
+          &--telegram
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 5px 0 0
+    &__input
+      &-group
+        flex-basis: 48%
+        &--phone
+          margin-right: 0
+    &__message
+      flex-basis: 100%
+    &__button
+      font-size: 16px
+      line-height: 20px
+  .certificates
+    &-slider
+      width: 500px
+      min-height: 370px
+      height: auto
+    &-buttons
+      &-block
+        /*top: 280px*/
+        width: 95%
+      &__image
+        &--right, &--left
+          width: 25px
+          height: 25px
+@media (max-width: 650px)
+  .header
+    &-main
+      display: flex
+      flex-direction: column
+      margin: 100px auto
+      &__text
+        &-block
+          display: none
+          &--upper, &--lower
+            display: flex
+            min-height: 150px
+            width: 100%
+            margin: 0 0 20px 0
+            align-items: center
+            text-align: center
+      &__photo
+        margin: 0 auto
+  .portfolio
+    &-header
+      &-menu
+        &__item
+          width: 200px
+    &-slider
+      width: 350px
+      height: 350px
+      margin: 0 auto
+    &-buttons
+      &-block
+        width: 95%
+      &__image
+        &--right, &--left
+          width: 25px
+          height: 25px
+    &-screenshots
+      flex-wrap: wrap
+  .georg
+    &-slider
+      width: 380px
+      height: 310px
+  .footer
+    &-block
+      flex-direction: column
+    &-form
+      margin-top: 20px
+@media (max-width: 576px)
+  .certificates
+    &-slider
+      width: 400px
+      min-height: 300px
+    &-buttons
+      &-block
+        top: 250px
+        width: 98%
+      &__image
+        &--right, &--left
+          width: 18px
+          height: 18px
+  .portfolio
+    &-screen
+      width: 145px
+    &-header
+      &-menu
+        &__item
+          width: 180px
+  .thankyou
+    height: 350px
+    margin: 0 auto
+    &__text
+      &-block
+        width: 100%
+        min-height: 400px
+        display: flex
+        flex-wrap: wrap
+        margin: 0
+        padding: 0
+        align-items: flex-start
+        flex-direction: column
+        justify-content: center
+        &--upper, &--lower
+          display: none
+        &--thankyou
+          height: 350px
+          margin: 0 auto
+    &-title
+      font-style: normal
+      font-weight: normal
+      font-size: 30px
+      line-height: 32px
+      color: $title-color
+      margin: 0 0 25px 0
+    &-subtitle
+      font-style: normal
+      font-weight: 500
+      font-size: 20px
+      line-height: 22px
+      color: #063873
+      margin: 0
+    &-text
+      font-style: normal
+      font-weight: normal
+      font-size: 16px
+      line-height: 18px
+      color: $text-color
+    &-button
+      width: 185px
+      min-height: 50px
+      background-color: $primary
+      color: #ffffff
+      border-radius: 8px
+      font-style: normal
+      font-weight: normal
+      font-size: 18px
+      line-height: 20px
+      display: flex
+      align-items: center
+      text-align: center
+      justify-content: center
+      outline: none
+      cursor: pointer
+      &:hover
+        background-color: #3982c6
+@media (max-width: 450px)
+  .portfolio
+    &-slider
+      width: 300px
+      height: 300px
+      margin: 0 auto
+    &-buttons
+      &-block
+        width: 95%
+      &__image
+        &--right, &--left
+          width: 25px
+          height: 25px
+    &-screenshots
+      align-self: center
+      &__left, &__right
+        flex-direction: column
+    &-screen
+      width: 300px
+      opacity: 1
+      -webkit-transform: scale(1)
+      -moz-transform: scale(1)
+      -o-transform: scale(01)
+      -webkit-transition-duration: none
+      -moz-transition-duration: none
+      -o-transition-duration: none
+  .skills
+    &-title
+      font-size: 26px
+      line-height: 28px
+    &-text
+      font-size: 16px
+      line-height: 22px
+@media (min-width: 320px) and (max-width: 450px)
+  .certificates
+    &-slider
+      width: 280px
+      min-height: 200px
+  .skills
+    &-title
+      font-size: 26px
+      line-height: 28px
+  .training
+    &-title
+      font-size: 26px
+      line-height: 28px
+  .works
+    &-title
+      font-size: 26px
+      line-height: 28px
+  .portfolio
+    &-title
+      font-size: 26px
+      line-height: 28px
+    &-slider
+      width: 270px
+      &-buttons
+        &-block
+          width: 98%
+    &-buttons
+      &__image
+        &--right, &--left
+          width: 20px
+          height: 20px
+    &-header
+      &-menu
+        &__item
+          width: 140px
+          font-size: 14px
+  .georg
+    &-title
+      font-size: 26px
+      line-height: 28px
+    &-slider
+      width: 270px
+      &-buttons
+        &-block
+          width: 98%
+    &-buttons
+      &__image
+        &--right, &--left
+          width: 20px
+          height: 20px
+  .footer
+    &__input-group
+      flex-basis: 100%
+    &-title
+      font-size: 26px
+      line-height: 28px
+  .swiper
+    &-slide
+      justify-content: flex-start
+@media (max-width: 320px)
+  .certificates
+    &-slider
+      width: 260px
+      min-height: 180px
+@media only screen and (max-device-height: 750px) and (orientation: landscape)
+  .certificates
+    &-slider
+      /*width: 80%*/
+      /*height: 300px*/
+      width: 350px
+      height: auto
+  .portfolio
+    &-slider
+      height: 300px
+      width: 300px
+    &-buttons
+      &__image
+        &--right, &--left
+          width: 20px
+          height: 20px
+  .weather
+    &-slider
+      height: 300px
+      width: 300px
+    &-buttons
+      &__image
+        &--right, &--left
+          width: 20px
+          height: 20px
+  .modal
+    &-certificate
+      &__dialog
+        &--visible
+          min-width: 80%
+          min-height: 90%
