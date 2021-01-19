@@ -22,6 +22,15 @@ header
     flex-direction: column
     justify-content: center
     align-items: center
+  &-background
+    width: 100%
+    min-height: 60px
+    background-color: white
+    box-shadow: rgba(0,0,0,.13) 0 4px 16px
+    position: fixed
+    top: 0
+    left: 0
+    opacity: 0
   &-logo
     font-family: 'Marck Script', cursive
     font-size: 26px
@@ -34,8 +43,8 @@ header
     align-items: center
     text-decoration: none
     &-icon
-      width: 40px
-      height: 40px
+      width: 30px
+      height: 30px
       filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(199deg) brightness(107%) contrast(101%)
       margin-right: 10px
     &-title
@@ -43,15 +52,20 @@ header
       text-decoration: none
       margin: 0
       padding: 0
+      z-index: 21
   &-navbar
-    position: absolute
-    top: 80px
-    left: 0
-    width: 100%
+    position: fixed
+    min-height: 60px
+    top: 0
+    width: 70%
     display: flex
     justify-content: space-around
     align-items: center
     z-index: 21
+    &-scrolled
+      background-color: white
+      box-shadow: rgba(0,0,0,.13) 0 4px 16px
+      color: #000
     &-logo
       width: 180px
       display: flex
@@ -62,6 +76,7 @@ header
     flex-direction: row
     justify-content: space-between
     list-style-type: none
+    z-index: 21
     &-item
       width: 120px
     &-link
@@ -70,11 +85,65 @@ header
 .main
   &-top
     position: absolute
-    top: 0
+    top: -800px
     width: 100%
     z-index: 19
+    &-mobile
+      display: none
   &-bottom
     position: absolute
-    bottom: -5px
+    bottom: -80px
     width: 100%
     z-index: 20
+  &-title
+    font-style: normal
+    font-weight: normal
+    font-size: 50px
+    line-height: 38px
+    color: #FFFFFF
+    margin: 0 0 25px 0
+    z-index: 21
+.shadow
+  position: absolute
+  bottom: 0
+  height: 300px
+  width: 100%
+  left: 0
+  z-index: 20
+  opacity: 0
+  /*background-color: blue*/
+  background: linear-gradient(to top, #3c2928, transparent)
+.black-10
+  color: #E7E6DD
+.black-20
+  color: #B9B8B1
+.black-30
+  color: #94938E
+.black-40
+  color: #767672
+.black-50
+  color: #5E5E5B
+.black-60
+  color: #4B4B49
+.black-70
+  color: #3C3C3A
+.black-80
+  color: #30302E
+.black-90
+  color: #1E1E1E
+.black-100
+  color: #000000
+.hiden
+  display: none!important
+.menu
+  &-button
+    display: none
+    background-color: inherit
+    &__line
+      width: 22px
+      height: 2px
+      color: #FFFFFF
+  &-close
+    display: none
+    &-image
+      filter: brightness(0) saturate(100%) invert(19%) sepia(8%) saturate(3867%) hue-rotate(165deg) brightness(95%) contrast(93%)
