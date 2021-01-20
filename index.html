@@ -36,16 +36,18 @@
           <!-- /.header-background -->
           <div class="header-navbar-logo">
             <a href="index.html" class="header-logo">
+              <!--
               <svg class="header-logo-icon">
                 <use xlink:href="img/icons.svg#wedding-cake"></use>
               </svg>
+              -->
               <h3 class="header-logo-title">Лакомка</h3>
             </a>
           </div>
           <!-- /.header-navbar-logo -->
           <ul class="header-menu">
             <li class="header-menu-item">
-              <a href="#" class="header-menu-link">О нас</a>
+              <a href="#" class="header-menu-link">О себе</a>
             </li>
             <li class="header-menu-item">
               <a href="#" class="header-menu-link">Торты</a>
@@ -57,11 +59,17 @@
               <a href="#" class="header-menu-link">Контакты</a>
             </li>
           </ul>
-          <button class="menu-button">
-            <span class="menu-button__line"></span>
-            <span class="menu-button__line"></span>
-            <span class="menu-button__line"></span>
-          </button>
+          <div class="menu-btn">
+            <!--
+            <span class="menu-btn__line"></span>
+            <span class="menu-btn__line"></span>
+            <span class="menu-btn__line"></span>
+            -->
+            <svg class="menu-btn-icon">
+              <use xlink:href="img/icons.svg#menu"></use>
+            </svg>
+          </div>
+          <!-- /.menu-btn -->
           <button class="menu-close hiden">
             <img
               src="img/close.svg"
@@ -74,24 +82,50 @@
         <h1 class="main-title translate" data-speed="0.5">
           Вкуснейшие торты <br />и выпечка на заказ
         </h1>
-        <img
-          src="img/main-top.jpg"
-          class="main-top translate"
-          data-speed="0.12"
-          alt="main image top"
-        />
-        <img
-          src="img/main-top-mobile.jpg"
-          class="main-top translate main-top-mobile"
-          data-speed="0.12"
-          alt="main image top mobile"
-        />
+        <div class="main-block-top" data-speed="1"></div>
         <img
           src="img/main-bottom.png"
           class="main-bottom translate"
           data-speed="0.15"
           alt="main image bottom"
         />
+        <div class="navbar-bottom">
+          <div class="container-navbar container-navbar__bottom">
+            <ul class="navbar-menu navbar-menu__bottom">
+              <li class="navbar-menu__item navbar-menu__item--bottom">
+                <a
+                  href="#skills"
+                  class="navbar-menu__link navbar-menu__link--bottom"
+                  >О себе</a
+                >
+              </li>
+              <li class="navbar-menu__item navbar-menu__item--bottom">
+                <a
+                  href="#skills"
+                  class="navbar-menu__link navbar-menu__link--bottom"
+                  >Торты</a
+                >
+              </li>
+              <li class="navbar-menu__item navbar-menu__item--bottom">
+                <a
+                  href="#skills"
+                  class="navbar-menu__link navbar-menu__link--bottom"
+                  >Выпечка</a
+                >
+              </li>
+              <li class="navbar-menu__item navbar-menu__item--bottom">
+                <a
+                  href="#skills"
+                  class="navbar-menu__link navbar-menu__link--bottom"
+                  >Контакты</a
+                >
+              </li>
+            </ul>
+            <!-- /.navbar-menu -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.navbar-bottom -->
       </div>
       <!-- /.header-wrapper -->
       <div class="shadow"></div>
@@ -101,6 +135,13 @@
       <div class="about-wrapper">
         <h2 class="about-title">Добро пожаловать в кондитерскую Лакомка!</h2>
         <div class="about-block">
+          <div class="about-info-chef">
+            <img src="img/chef.jpg" class="about-info-image" alt="Chef" />
+            <span class="about-info-name">Гулина Инна</span>
+            <span class="about-info-position">Шеф-кондитер ЛАКОМКИ</span>
+          </div>
+          <!-- /.about-info-chef -->
+
           <div class="about-info">
             <p class="about-info-text">
               «Я всегда мечтала создавать маленькие кондитерские шедевры - моя
@@ -115,12 +156,6 @@
             </p>
           </div>
           <!-- /.about-info -->
-          <div class="about-info-chef">
-            <img src="img/chef.jpg" class="about-info-image" alt="Chef" />
-            <span class="about-info-name">Гулина Инна</span>
-            <span class="about-info-position">Шеф-кондитер ЛАКОМКИ</span>
-          </div>
-          <!-- /.about-info-chef -->
         </div>
         <!-- /.about-block -->
       </div>

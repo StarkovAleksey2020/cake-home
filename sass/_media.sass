@@ -12,14 +12,16 @@
       bottom: -40px
 @media (max-width: 1440px)
   .main
-    &-top
-      top: -360px
+    &-block
+      &-top
+        top: -360px
     &-bottom
       bottom: -40px
 @media (max-width: 1390px)
   .main
-    &-top
-      top: -240px
+    &-block
+      &-top
+        top: -240px
     &-bottom
       bottom: -20px
 @media (max-width: 1200px)
@@ -29,14 +31,16 @@
       &__item
         font-size: 18px
   .main
-    &-top
-      top: -110px
+    &-block
+      &-top
+        top: -100px
     &-bottom
       bottom: 0
 @media (max-width: 1070px)
   .main
-    &-top
-      top: -40px
+    &-block
+      &-top
+        top: -30px
     &-bottom
       bottom: 0
 @media (max-width: 992px)
@@ -44,16 +48,13 @@
     &-wrapper
       width: 100%
     &-navbar
-      padding: 0
+      padding: 0 20px
       justify-content: space-between
       &-logo
         width: 130px
     &-logo
       font-size: 20px
       line-height: 28px
-      &-icon
-        width: 35px
-        height: 35px
     &-menu
       width: 60%
       padding: 0
@@ -62,6 +63,9 @@
         font-size: 18px
         line-height: 24px
   .main
+    &-block
+      &-top
+        top: -400px
     &-top
       display: none
       &-mobile
@@ -84,25 +88,18 @@
           text-align: center
           display: block
           width: 220px
-@media (max-width: 940px)
+@media (max-width: 930px)
   .main
-    &-top
-      &-mobile
-        top: -376px
+    &-block
+      &-top
+        top: -300px
     &-bottom
       bottom: 0
-@media (max-width: 880px)
-  .main
-    &-top
-      &-mobile
-        top: -376px
-    &-bottom
-      bottom: 68px
 @media (max-width: 820px)
   .main
-    &-top
-      &-mobile
-        top: -330px
+    &-block
+      &-top
+        top: -240px
     &-bottom
       bottom: 96px
 @media (max-width: 768px)
@@ -142,7 +139,9 @@
     right: 0
     left: 0
     z-index: 99
-    background-color: #fff
+    /*background-color: #fff*/
+    &-background
+      z-index: 1
     &-wrapper
       min-height: 740px
     &-navbar
@@ -171,6 +170,18 @@
       &-text
         font-size: 18px
         line-height: 24px
+  .about
+    &-wrapper
+      padding-top: 85px
+    &-title
+      text-align: center
+    &-block
+      flex-direction: column
+      align-items: center
+    &-info
+      width: 100%
+      &-chef
+        text-align: center
   .navbar
     position: fixed
     top: 0
@@ -182,29 +193,35 @@
       &__item
         margin-bottom: 26px
   .menu
+    &-btn
+      display: flex
     &-button
       display: flex
-      width: 22px
-      height: 18px
+      width: 32px
+      height: 24px
       padding: 0
       align-items: center
       justify-content: space-between
       flex-direction: column
       border: none
       background-color: inherit
-      color: #fff
+      color: #FFF
       cursor: pointer
       outline: none
+      z-index: 100
+      &__line
+        z-index: 100
     &-close
       display: flex
-      width: 24px
-      height: 16px
+      width: 32px
+      height: 32px
       padding: 0
       align-items: center
-      justify-content: space-between
+      justify-content: center
       flex-direction: column
       border: none
-      color: #fff
+      filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(915%) hue-rotate(345deg) brightness(93%) contrast(95%)
+      background-color: inherit
       cursor: pointer
       outline: none
   .lang
@@ -283,27 +300,6 @@
     &-georg
       &__link
         font-size: 14px
-  .georg
-    &-wrapper
-      width: 100%
-      flex-direction: column
-    &-screen
-      height: auto
-      width: 80%
-    &-title
-      font-size: 32px
-    &-text
-      font-size: 14px
-      line-height: 20px
-    &-slider
-      margin: 0 auto
-    &-buttons
-      &-block
-        width: 95%
-      &__image
-        &--right, &--left
-          width: 25px
-          height: 25px
   .footer
     &-title
       font-size: 32px
@@ -365,11 +361,11 @@
 @media (max-width: 732px)
   .header
     &-wrapper
-      min-height: 600px
+      /*min-height: 600px*/
   .main
-    &-top
-      height: 600px
-      top: -144px
+    &-block
+      &-top
+        top: -144px
     &-bottom
       bottom: -30px
     &-title
@@ -377,11 +373,16 @@
       line-height: 38px
 @media (max-width: 700px)
   .main
-    &-bottom
+    &-block
+      &-top
+        top: -100px
 @media (max-width: 650px)
   .main
+    &-block
+      &-top
+        top: -14px
     &-bottom
-      bottom: 10px
+      bottom: -15px
   .header
     &-main
       display: flex
@@ -427,12 +428,20 @@
     &-form
       margin-top: 20px
 @media (max-width: 576px)
+  .header
+    &-wrapper
+      min-height: 800px
   .main
+    &-block
+      &-top
+        top: -85px
+        min-height: 800px
+        background-position: bottom
     &-title
       font-size: 26px
       line-height: 38px
     &-bottom
-      bottom: 20px
+      display: none
   .certificates
     &-slider
       width: 400px
@@ -509,14 +518,25 @@
       cursor: pointer
       &:hover
         background-color: #3982c6
-@media (max-width: 490px)
+  .shadow
+    bottom: 80px
+@media (max-width: 500px)
+  .header
+    &-wrapper
+      min-height: 750px
   .main
-    &-bottom
-      bottom: 40px
+    &-block
+      &-top
+        top: -70px
+        min-height: 750px
 @media (max-width: 450px)
   .main
+    &-block
+      &-top
+        min-height: 500px
+        top: -70px
     &-bottom
-      bottom: 60px
+      /*bottom: 60px*/
   .portfolio
     &-slider
       width: 300px
@@ -549,10 +569,14 @@
     &-text
       font-size: 16px
       line-height: 22px
+  .shadow
+    bottom: 180px
 @media (min-width: 320px) and (max-width: 450px)
+  header
+    height: 500px
   .header
     &-wrapper
-      min-height: 500px
+      min-height: 360px
   .main
     &-top
       top: -134px
@@ -616,7 +640,13 @@
   .swiper
     &-slide
       justify-content: flex-start
+  .shadow
+    bottom: 180px
 @media (max-width: 320px)
+  .main
+    &-block
+      &-top
+        min-height: 480px
   .certificates
     &-slider
       width: 260px

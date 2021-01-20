@@ -24,7 +24,7 @@ header
     align-items: center
   &-background
     width: 100%
-    min-height: 60px
+    min-height: 80px
     background-color: white
     box-shadow: rgba(0,0,0,.13) 0 4px 16px
     position: fixed
@@ -83,6 +83,31 @@ header
       color: #FFFFFF
       text-decoration: none
 .main
+  &-block
+    &-top
+      width: 100%
+      min-height: 1500px
+      position: absolute
+      top: -440px
+      left: 0
+      right: 0
+      background-image: url('../img/main-top.jpg')
+      background-repeat: no-repeat
+      background-size: 100% auto
+      background-position: top
+      z-index: 1
+    &-bottom
+      width: 100%
+      min-height: 60%
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      background-image: url('../img/main-bottom.png')
+      background-repeat: no-repeat
+      background-size: 100% auto
+      background-position: bottom
+      z-index: 2
   &-top
     position: absolute
     top: -800px
@@ -136,14 +161,35 @@ header
 .hiden
   display: none!important
 .menu
+  &-btn
+    display: none
+    width: 40px
+    height: 40px
+    outline: none
+    z-index: 100
+    cursor: pointer
+    border: none
+    background-color: inherit
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7427%) hue-rotate(23deg) brightness(118%) contrast(118%)
+    &__line
+      width: 22px
+      height: 2px
+      /*color: #FFFFFF*/
   &-button
     display: none
-    background-color: inherit
+    /*background-color: inherit*/
     &__line
       width: 22px
       height: 2px
       color: #FFFFFF
   &-close
     display: none
+    width: 40px
+    height: 40px
+    outline: none
+    z-index: 100
+    cursor: pointer
+    border: none
+    background-color: inherit
     &-image
       filter: brightness(0) saturate(100%) invert(19%) sepia(8%) saturate(3867%) hue-rotate(165deg) brightness(95%) contrast(93%)
