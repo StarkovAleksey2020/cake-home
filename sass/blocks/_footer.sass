@@ -1,17 +1,33 @@
 .footer
   background: #063873
+  width: 100%
   position: relative
-  z-index: 1
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin-top: 50px
   &-wrapper
-    width: 100%
+    max-width: 1440px
+    width: 70%
+    min-height: 600px
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    padding: 20px 40px
+    flex-wrap: wrap
   &-title
+    width: 100%
     font-style: normal
     font-weight: normal
-    font-size: 36px
+    font-size: 24px
     line-height: 38px
     color: #FFFFFF
     padding: 0
-    margin: 0 0 20px 0
+    margin: 0 0 10px 0
     z-index: 100
     position: relative
   &-subtitle
@@ -25,6 +41,7 @@
     z-index: 100
     position: relative
   &-text
+    width: 100%
     font-style: normal
     font-weight: normal
     font-size: 18px
@@ -43,16 +60,23 @@
     padding: 0
     margin: 0 13px
   &-block
+    width: 100%
     display: flex
     flex-direction: row
     justify-content: start
     align-items: flex-start
-  &-contacts
+  &-address
+    width: 45%
     min-height: 162px
     display: flex
     flex-direction: column
-    flex-basis: 30%
-    justify-content: space-between
+    justify-content: flex-start
+  &-contacts
+    width: 45%
+    min-height: 162px
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
     &-phone
       display: flex
       flex-direction: row
@@ -73,6 +97,7 @@
           width: 20px
           height: 20px
           margin: 0 20px 0 0
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%)
     &-email
       display: flex
       flex-direction: row
@@ -136,8 +161,8 @@
     width: 100%
     font-style: normal
     font-weight: normal
-    font-size: 12px
-    line-height: 15px
+    font-size: 16px
+    line-height: 18px
     color: #063873
     &:active
       outline: none
@@ -159,8 +184,9 @@
     margin-bottom: 23px
     font-style: normal
     font-weight: normal
-    font-size: 12px
-    line-height: 15px
+    font-size: 16px
+    line-height: 18px
+    padding: 8px
     color: #063873
   &__button
     width: 40%

@@ -4,12 +4,24 @@
       top: -560px
     &-bottom
       bottom: -40 px
+  .cake
+    &-card
+      margin-right: 30px
+  .bakery
+    &-card
+      margin-right: 30px
 @media (max-width: 1560px)
   .main
     &-top
       top: -460px
     &-bottom
       bottom: -40px
+  .cake
+    &-card
+      margin-right: 10px
+  .bakery
+    &-card
+      margin-right: 10px
 @media (max-width: 1440px)
   .main
     &-block
@@ -50,6 +62,7 @@
     &-navbar
       padding: 0 20px
       justify-content: space-between
+      width: 80%
       &-logo
         width: 130px
     &-logo
@@ -73,21 +86,26 @@
         top: -428px
     &-bottom
       bottom: 0
-  .portfolio
-    &-screenshots
+  .about
+    &-wrapper
+      width: 90%
+      padding-top: 85px
+    &-title
+      text-align: center
+    &-block
       flex-direction: column
-      align-items: flex-start
-    &-header
-      display: flex
-      &-menu
-        list-style-type: none
-        display: flex
-        margin: 10px 0
-        padding: 0
-        &__item
-          text-align: center
-          display: block
-          width: 220px
+      align-items: center
+    &-info
+      width: 100%
+      &-chef
+        width: 100%
+        text-align: center
+  .cake
+    &-wrapper
+      padding: 20px 20px
+  .bakery
+    &-wrapper
+      padding: 20px 20px
 @media (max-width: 930px)
   .main
     &-block
@@ -139,7 +157,6 @@
     right: 0
     left: 0
     z-index: 99
-    /*background-color: #fff*/
     &-background
       z-index: 1
     &-wrapper
@@ -170,18 +187,6 @@
       &-text
         font-size: 18px
         line-height: 24px
-  .about
-    &-wrapper
-      padding-top: 85px
-    &-title
-      text-align: center
-    &-block
-      flex-direction: column
-      align-items: center
-    &-info
-      width: 100%
-      &-chef
-        text-align: center
   .navbar
     position: fixed
     top: 0
@@ -224,82 +229,12 @@
       background-color: inherit
       cursor: pointer
       outline: none
-  .lang
-    &-block
-      display: none
-      &-bottom
-        display: flex
-  .skills
+  .cake
     &-wrapper
-      width: 100%
-    &-title
-      font-size: 32px
-    &-text
-      font-size: 18px
-      line-height: 26px
-  .training
+      width: 90%
+  .bakery
     &-wrapper
-      width: 100%
-    &-certificate
-      &--1, &--2, &--3
-        width: 30%
-    &-certificates
-      &-block
-        min-height: auto
-        flex-direction: row
-        justify-content: center
-    &-title
-      font-size: 32px
-    &-text
-      font-size: 14px
-      line-height: 20px
-  .works
-    &-wrapper
-      width: 100%
-    &-title
-      font-size: 26px
-    &-text
-      font-size: 14px
-      line-height: 20px
-  .training
-    &-wrapper
-      flex-basis: 100%
-  .portfolio
-    &-header
-      &-menu
-        &__item
-          font-size: 16px
-          &--active
-            font-size: 16px
-            font-weight: 600
-    &-wrapper
-      width: 100%
-      flex-direction: column
-    &-screen
-      height: auto
-      /*width: 80%*/
-    &-title
-      font-size: 32px
-    &-text
-      font-size: 14px
-      line-height: 20px
-    &-slider
-      width: 400px
-      height: 400px
-      margin: 0 auto
-    &-buttons
-      &-block
-        width: 95%
-      &__image
-        &--right, &--left
-          width: 25px
-          height: 25px
-    &-qutuva
-      &__link
-        font-size: 14px
-    &-georg
-      &__link
-        font-size: 14px
+      width: 90%
   .footer
     &-title
       font-size: 32px
@@ -359,9 +294,14 @@
           width: 25px
           height: 25px
 @media (max-width: 732px)
-  .header
-    &-wrapper
-      /*min-height: 600px*/
+  .about
+    &-title
+      font-size: 24px
+      line-height: 28px
+    &-info
+      &-text
+        font-size: 18px
+        line-height: 22px
   .main
     &-block
       &-top
@@ -377,6 +317,19 @@
       &-top
         top: -100px
 @media (max-width: 650px)
+  .about
+    &-wrapper
+      padding-top: 40px
+    &-title
+      font-size: 22px
+      line-height: 24px
+    &-info
+      &-name
+        font-size: 20px
+        line-height: 22px
+      &-text
+        font-size: 16px
+        line-height: 20px
   .main
     &-block
       &-top
@@ -418,10 +371,6 @@
           height: 25px
     &-screenshots
       flex-wrap: wrap
-  .georg
-    &-slider
-      width: 380px
-      height: 310px
   .footer
     &-block
       flex-direction: column
@@ -442,25 +391,6 @@
       line-height: 38px
     &-bottom
       display: none
-  .certificates
-    &-slider
-      width: 400px
-      min-height: 300px
-    &-buttons
-      &-block
-        top: 250px
-        width: 98%
-      &__image
-        &--right, &--left
-          width: 18px
-          height: 18px
-  .portfolio
-    &-screen
-      width: 145px
-    &-header
-      &-menu
-        &__item
-          width: 180px
   .thankyou
     height: 350px
     margin: 0 auto
@@ -520,21 +450,50 @@
         background-color: #3982c6
   .shadow
     bottom: 80px
+  .cake
+    &-card
+      width: 260px
+      margin-right: 0
+      margin-bottom: 30px
+    &-image
+      width: 260px
+      height: 170px
+  .bakery
+    &-card
+      width: 260px
+      margin-right: 0
+      margin-bottom: 30px
+    &-image
+      width: 260px
+      height: 170px
 @media (max-width: 500px)
+  .about
+    &-title
+      font-size: 20px
+      line-height: 22px
+    &-info
+      &-name
+        font-size: 18px
+        line-height: 20px
+      &-text
+        font-size: 16px
+        line-height: 20px
   .header
     &-wrapper
       min-height: 750px
   .main
     &-block
       &-top
-        top: -70px
+        top: -83px
         min-height: 750px
 @media (max-width: 450px)
+  header
+    min-height: 550px
   .main
     &-block
       &-top
-        min-height: 500px
-        top: -70px
+        min-height: 550px
+        top: -195px
     &-bottom
       /*bottom: 60px*/
   .portfolio
@@ -572,12 +531,28 @@
   .shadow
     bottom: 180px
 @media (min-width: 320px) and (max-width: 450px)
+  .about
+    &-wrapper
+      padding-top: 20px
+    &-title
+      font-size: 18px
+      line-height: 20px
+    &-info
+      &-name
+        font-size: 16px
+        line-height: 18px
+      &-text
+        font-size: 14px
+        line-height: 16px
   header
-    height: 500px
+    height: 550px
   .header
     &-wrapper
-      min-height: 360px
+      min-height: 550px
   .main
+    &-block
+      &-top
+        top: -25px
     &-top
       top: -134px
     &-bottom
@@ -617,20 +592,6 @@
         &__item
           width: 140px
           font-size: 14px
-  .georg
-    &-title
-      font-size: 26px
-      line-height: 28px
-    &-slider
-      width: 270px
-      &-buttons
-        &-block
-          width: 98%
-    &-buttons
-      &__image
-        &--right, &--left
-          width: 20px
-          height: 20px
   .footer
     &__input-group
       flex-basis: 100%
@@ -642,11 +603,16 @@
       justify-content: flex-start
   .shadow
     bottom: 180px
+@media (max-width: 350px)
+  .main
+    &-block
+      &-top
+        top: -70px
 @media (max-width: 320px)
   .main
     &-block
       &-top
-        min-height: 480px
+        min-height: 550px
   .certificates
     &-slider
       width: 260px
