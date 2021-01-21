@@ -193,3 +193,32 @@ header
     background-color: inherit
     &-image
       filter: brightness(0) saturate(100%) invert(19%) sepia(8%) saturate(3867%) hue-rotate(165deg) brightness(95%) contrast(93%)
+.form
+  display: flex
+  /*flex-direction: column*/
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
+  padding: 10px 1px 0 5px
+  margin-bottom: 75px
+.input
+  background-color: #fff
+  border-radius: 4px
+  border: none
+  padding: 0 8px
+  height: 50px
+.message
+  width: 43%
+  background-color: #fff
+  border-radius: 4px
+  padding: 8px
+  border: none
+.invalid
+  color: red
+  border-bottom: 1px solid red
+label.invalid
+  position: absolute
+  bottom: -12px
+  font-size: 12px
+  line-height: 12px
+  border-bottom: none
