@@ -5,8 +5,6 @@
   text-decoration: none
   color: #FFF
 .header
-  &-thankyou
-    height: 100px
   &-navbar
     /*width: 100%*/
     min-height: 80px
@@ -16,6 +14,12 @@
     padding: 0
     align-items: center
     z-index: 30
+    &-thankyou
+      display: flex
+      background: inherit
+    &-logo
+      &--thankyou
+        color: #FFFFFF
   &-menu
     width: 65%
     list-style-type: none
@@ -40,6 +44,8 @@
       color: $title-color
       &:hover
         text-shadow: 1px 1px 2px $bgr-legend, 0 0 1em $text-color
+      &-thankyou
+        color: #FFFFFF
     &__link
       color: #FFFFFF
       text-decoration: none
@@ -177,7 +183,7 @@
       right: 0
       bottom: 0
       overflow: hidden
-      z-index: 30
+      z-index: 102
 .menu
   &-button
     display: none
@@ -232,6 +238,9 @@
 .thankyou
   height: 350px
   margin: 0 auto
+  display: flex
+  justify-content: center
+  align-items: center
   &__text
     &-block
       width: 90%
@@ -271,7 +280,7 @@
   &-button
     width: 285px
     min-height: 50px
-    background-color: $primary
+    background-color: #CD9D55
     color: #ffffff
     border-radius: 8px
     font-style: normal
@@ -285,4 +294,4 @@
     outline: none
     cursor: pointer
     &:hover
-      background-color: #3982c6
+      background-color: #A67122

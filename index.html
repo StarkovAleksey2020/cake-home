@@ -13,7 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -35,7 +34,7 @@
     </div>
     <!-- Back to top button -->
     <a id="button"></a>
-    <header>
+    <header class="header">
       <div class="header-wrapper">
         <div class="main-block-top" data-speed="1"></div>
         <nav class="header-navbar">
@@ -43,35 +42,25 @@
           <!-- /.header-background -->
           <div class="header-navbar-logo">
             <a href="index.html" class="header-logo">
-              <!--
-              <svg class="header-logo-icon">
-                <use xlink:href="img/icons.svg#wedding-cake"></use>
-              </svg>
-              -->
               <h3 class="header-logo-title">Лакомка</h3>
             </a>
           </div>
           <!-- /.header-navbar-logo -->
           <ul class="header-menu">
             <li class="header-menu-item">
-              <a href="#" class="header-menu-link">О себе</a>
+              <a href="#about" class="header-menu-link">О себе</a>
             </li>
             <li class="header-menu-item">
-              <a href="#" class="header-menu-link">Торты</a>
+              <a href="#cake" class="header-menu-link">Торты</a>
             </li>
             <li class="header-menu-item">
-              <a href="#" class="header-menu-link">Выпечка</a>
+              <a href="#bakery" class="header-menu-link">Выпечка</a>
             </li>
             <li class="header-menu-item">
-              <a href="#" class="header-menu-link">Контакты</a>
+              <a href="#footer" class="header-menu-link">Контакты</a>
             </li>
           </ul>
           <div class="menu-btn">
-            <!--
-            <span class="menu-btn__line"></span>
-            <span class="menu-btn__line"></span>
-            <span class="menu-btn__line"></span>
-            -->
             <svg class="menu-btn-icon">
               <use xlink:href="img/icons.svg#menu"></use>
             </svg>
@@ -100,28 +89,28 @@
             <ul class="navbar-menu navbar-menu__bottom">
               <li class="navbar-menu__item navbar-menu__item--bottom">
                 <a
-                  href="#skills"
+                  href="#about"
                   class="navbar-menu__link navbar-menu__link--bottom"
                   >О себе</a
                 >
               </li>
               <li class="navbar-menu__item navbar-menu__item--bottom">
                 <a
-                  href="#skills"
+                  href="#cake"
                   class="navbar-menu__link navbar-menu__link--bottom"
                   >Торты</a
                 >
               </li>
               <li class="navbar-menu__item navbar-menu__item--bottom">
                 <a
-                  href="#skills"
+                  href="#bakery"
                   class="navbar-menu__link navbar-menu__link--bottom"
                   >Выпечка</a
                 >
               </li>
               <li class="navbar-menu__item navbar-menu__item--bottom">
                 <a
-                  href="#skills"
+                  href="#footer"
                   class="navbar-menu__link navbar-menu__link--bottom"
                   >Контакты</a
                 >
@@ -137,7 +126,7 @@
       <div class="shadow"></div>
       <!-- /.shadow -->
     </header>
-    <section class="about">
+    <section id="about" class="about">
       <div class="about-wrapper">
         <h2 class="about-title">Добро пожаловать в кондитерскую Лакомка!</h2>
         <div class="about-block">
@@ -168,7 +157,7 @@
       <!-- /.about-wrapper -->
     </section>
     <!-- /.about -->
-    <section class="cake">
+    <section id="cake" class="cake">
       <div class="cake-wrapper">
         <h2 class="cake-title">Торты</h2>
         <div class="cake-card">
@@ -359,7 +348,7 @@
       <!-- /.cake-wrapper -->
     </section>
     <!-- /.cake -->
-    <section class="bakery">
+    <section id="bakery" class="bakery">
       <div class="bakery-wrapper">
         <h2 class="bakery-title">Выпечка</h2>
         <div class="bakery-card">
@@ -681,10 +670,7 @@
       };
     </script>
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/0.0.14/i18next-jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/2.0.22/i18next.min.js"></script>
     <script src="js/bgscroll.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
     <script src="js/main.js"></script>

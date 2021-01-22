@@ -48,6 +48,9 @@
         top: -100px
     &-bottom
       bottom: 0
+  .footer
+    &-form
+      width: 80%
 @media (max-width: 1070px)
   .main
     &-block
@@ -106,6 +109,16 @@
   .bakery
     &-wrapper
       padding: 20px 20px
+  .footer
+    &-wrapper
+      flex-direction: column
+    &-address
+      width: 100%
+    &-contacts
+      width: 100%
+      margin-bottom: 20px
+    &-form
+      width: 100%
 @media (max-width: 930px)
   .main
     &-block
@@ -141,7 +154,7 @@
         align-items: flex-start
         justify-content: center
         padding-top: 22px
-        background-color: #183B56
+        background-color: #683b2f
     &-portfolio
       padding: 77px 0
     &-thankyou
@@ -152,11 +165,6 @@
     &-bottom
       bottom: -12px
   .header
-    position: fixed
-    top: 0
-    right: 0
-    left: 0
-    z-index: 99
     &-background
       z-index: 1
     &-wrapper
@@ -236,16 +244,20 @@
     &-wrapper
       width: 90%
   .footer
+    &-wrapper
+      width: 90%
+      padding: 20px
     &-title
-      font-size: 32px
     &-subtitle
-      font-size: 16px
+      font-size: 18px
       line-height: 20px
     &-text
-      font-size: 14px
+      font-size: 16px
       line-height: 20px
+    &-address
+      min-height: 120px
     &-contacts
-      flex-basis: 36%
+      min-height: 120px
       &-email
         font-size: 16px
         &__link
@@ -272,7 +284,7 @@
             margin: 0 5px 0 0
     &__input
       &-group
-        flex-basis: 48%
+        flex-basis: 100%
         &--phone
           margin-right: 0
     &__message
@@ -280,6 +292,8 @@
     &__button
       font-size: 16px
       line-height: 20px
+  .form
+    padding: 0
   .certificates
     &-slider
       width: 500px
@@ -433,7 +447,7 @@
     &-button
       width: 185px
       min-height: 50px
-      background-color: $primary
+      background-color: #CD9D55
       color: #ffffff
       border-radius: 8px
       font-style: normal
@@ -447,7 +461,7 @@
       outline: none
       cursor: pointer
       &:hover
-        background-color: #3982c6
+        background-color: #A67122
   .shadow
     bottom: 80px
   .cake
@@ -486,9 +500,27 @@
       &-top
         top: -83px
         min-height: 750px
+  .footer
+    &-address, &-contacts
+      min-height: 90px
+    &-wrapper
+      padding: 20px 10px
+    &-title
+      font-size: 18px
+      line-height: 22px
+    &-subtitle
+      font-size: 16px
+      line-height: 20px
+    &-text
+      font-size: 14px
+      line-height: 16px
+    &__button
+      width: 50%
 @media (max-width: 450px)
-  header
-    min-height: 550px
+  .header
+    height: 80px
+    &-thankyou
+      height: 80px
   .main
     &-block
       &-top
@@ -544,9 +576,8 @@
       &-text
         font-size: 14px
         line-height: 16px
-  header
-    height: 550px
   .header
+    height: 550px
     &-wrapper
       min-height: 550px
   .main
@@ -557,47 +588,9 @@
       top: -134px
     &-bottom
       bottom: -25px
-  .certificates
-    &-slider
-      width: 280px
-      min-height: 200px
-  .skills
-    &-title
-      font-size: 26px
-      line-height: 28px
-  .training
-    &-title
-      font-size: 26px
-      line-height: 28px
-  .works
-    &-title
-      font-size: 26px
-      line-height: 28px
-  .portfolio
-    &-title
-      font-size: 26px
-      line-height: 28px
-    &-slider
-      width: 270px
-      &-buttons
-        &-block
-          width: 98%
-    &-buttons
-      &__image
-        &--right, &--left
-          width: 20px
-          height: 20px
-    &-header
-      &-menu
-        &__item
-          width: 140px
-          font-size: 14px
   .footer
     &__input-group
       flex-basis: 100%
-    &-title
-      font-size: 26px
-      line-height: 28px
   .swiper
     &-slide
       justify-content: flex-start

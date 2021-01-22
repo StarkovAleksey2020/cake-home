@@ -3,7 +3,7 @@
 body
   font-family: 'Marmelad', sans-serif
   background-color: $background-color
-header
+.header
   width: 100%
   height: 100vh
   position: relative
@@ -12,7 +12,9 @@ header
   flex-direction: column
   justify-content: center
   align-items: center
-.header
+  &-thankyou
+    height: 80px
+    background: #683b2f
   &-wrapper
     max-width: 1440px
     width: 70%
@@ -22,6 +24,15 @@ header
     flex-direction: column
     justify-content: center
     align-items: center
+    &-thankyou
+      max-width: 1440px
+      width: 70%
+      height: 100%
+      position: relative
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      align-items: center
   &-background
     width: 100%
     min-height: 80px
@@ -71,18 +82,39 @@ header
       display: flex
       justify-content: center
       align-items: center
+    &-thankyou
+      background: inherit
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
   &-menu
     display: flex
     flex-direction: row
     justify-content: space-between
     list-style-type: none
     z-index: 21
+    &-thankyou
+      list-style-type: none
     &-item
       width: 120px
     &-link
       color: #FFFFFF
       text-decoration: none
 .main
+  &-wrapper
+    max-width: 1440px
+    width: 70%
+    min-height: 400px
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    padding: 20px 40px
+    flex-wrap: wrap
+    &-thankyou
+      width: 100%
   &-block
     &-top
       width: 100%
@@ -195,7 +227,6 @@ header
       filter: brightness(0) saturate(100%) invert(19%) sepia(8%) saturate(3867%) hue-rotate(165deg) brightness(95%) contrast(93%)
 .form
   display: flex
-  /*flex-direction: column*/
   align-items: center
   justify-content: space-between
   flex-wrap: wrap
@@ -214,7 +245,7 @@ header
   padding: 8px
   border: none
 .invalid
-  color: red
+  color: #FFFFFF
   border-bottom: 1px solid red
 label.invalid
   position: absolute
@@ -222,3 +253,33 @@ label.invalid
   font-size: 12px
   line-height: 12px
   border-bottom: none
+#button
+  display: inline-block
+  background-color: $quote
+  width: 50px
+  height: 50px
+  text-align: center
+  border-radius: 4px
+  position: fixed
+  bottom: 30px
+  right: 10%
+  transition: background-color .3s, opacity .5s, visibility .5s
+  opacity: 0
+  visibility: hidden
+  z-index: 1000
+  &::after
+    content: "\f077"
+    font-family: FontAwesome
+    font-weight: normal
+    font-style: normal
+    font-size: 2em
+    line-height: 50px
+    color: #fff
+  &:hover
+    cursor: pointer
+    background-color: #333
+  &:active
+    background-color: #555
+  &.show
+    opacity: 1
+    visibility: visible
