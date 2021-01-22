@@ -186,6 +186,7 @@ $(document).ready(function () {
   $(document).keyup(function (e) {
     if (e.keyCode === 27) {
       closeModal(e);
+      closeModalSertificate(e);
     }
   });
   function closeModal(event) {
@@ -198,5 +199,37 @@ $(document).ready(function () {
 
   // Маска номера телефона
   $(".phoneInput").mask("+7 (999) 999-99-99");
+
+  // Модальное окно со слайдером с сертификатами
+  var modalSertificateButton = $('[data-toggle=modal-certificate]');
+  var closeModalButton = $(".menu-close-certificate");
+  var modalOverlay = $(".modal-certificate__overlay");
+
+  modalSertificateButton.on('click', openModalSertificate);
+  closeModalButton.on('click', closeModalSertificate);
+  modalOverlay.on('click', closeModalSertificate);
+
+  function openModalSertificate() {
+    var modalOverlay = $(".modal-certificate__overlay");
+    var modalDialog = $(".modal-certificate__dialog");
+    var closeModalButton = $(".menu-close-certificate");
+    closeModalButton.addClass("menu-close-certificate--visible");
+    modalOverlay.addClass("modal-certificate__overlay--visible");
+    modalDialog.addClass("modal-certificate__dialog--visible");
+  }
+  function closeModalSertificate(event) {
+    event.preventDefault();
+    var modalOverlay = $(".modal-certificate__overlay");
+    var modalDialog = $(".modal-certificate__dialog");
+    var closeModalButton = $(".menu-close-certificate");
+    closeModalButton.removeClass("menu-close-certificate--visible");
+    modalOverlay.removeClass("modal-certificate__overlay--visible");
+    modalDialog.removeClass("modal-certificate__dialog--visible");
+  }
+
+  var certificatesSlider = new Swiper('.certificates-slider', {
+    // Optional parameters
+    loop: false,
+  });
 
 });

@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -147,7 +148,14 @@
               Гулина Инна - основатель и шеф-кондитер Лакомки. Карьеру кондитера
               начала в 2011 году. После признания качества продукции друзьями и
               знакомыми приступила к выполнению заказов. В 2020 году подтвердила
-              квалификацию получив сертификат мастера-кондитера.
+              квалификацию получив
+              <a
+                href="#about"
+                class="about-cert"
+                data-toggle="modal-certificate"
+                >сертификат</a
+              >
+              мастера-кондитера.
             </p>
           </div>
           <!-- /.about-info -->
@@ -660,6 +668,29 @@
       </div>
     </section>
     <!-- /.footer -->
+    <div class="modal-certificate">
+      <div class="modal-certificate__overlay"></div>
+      <!-- /.modal__overlay -->
+      <div class="modal-certificate__dialog">
+        <button class="menu-close-certificate">
+          <img src="img/close.svg" alt="Icon: close" class="menu-close-image" />
+        </button>
+        <div class="swiper-container certificates-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="img/cert-1.jpeg"
+                alt="sertificate one"
+                class="training-certificate training-certificate__modal"
+                data-toggle="modal-certificate"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-certificate__dialog -->
+    </div>
+
     <script>
       window.onload = function () {
         document.body.classList.add("loaded_hiding");
@@ -671,6 +702,7 @@
     </script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bgscroll.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
     <script src="js/main.js"></script>
