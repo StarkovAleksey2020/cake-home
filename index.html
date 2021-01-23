@@ -25,6 +25,8 @@
       href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+    <script src="https://unpkg.com/vuex@3.6.0/dist/vuex.js"></script>
   </head>
   <body>
     <div class="preloader">
@@ -61,6 +63,7 @@
               <a href="#footer" class="header-menu-link">Контакты</a>
             </li>
           </ul>
+          <div id="basket"></div>
           <div class="menu-btn">
             <svg class="menu-btn-icon">
               <use xlink:href="img/icons.svg#menu"></use>
@@ -169,11 +172,7 @@
       <div class="cake-wrapper">
         <h2 class="cake-title">Торты</h2>
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-1"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -192,11 +191,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-2"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -215,11 +210,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-3"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -238,11 +229,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-4"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -261,11 +248,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-5"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -284,11 +267,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-6"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -307,11 +286,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-7"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -330,11 +305,7 @@
         </div>
         <!-- /.cake-card -->
         <div class="cake-card">
-          <button class="cake-card-basket">
-            <svg class="cake-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="cake-8"></div>
           <div class="cake-amount-block hiden">
             <button class="cake-amount-left"><</button>
             <span class="cake-amount">0</span>
@@ -360,11 +331,7 @@
       <div class="bakery-wrapper">
         <h2 class="bakery-title">Выпечка</h2>
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-1"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -387,11 +354,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-2"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -414,11 +377,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-3"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -441,11 +400,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-4"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -468,11 +423,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-5"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -495,11 +446,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-6"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -522,11 +469,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-7"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -549,11 +492,7 @@
         </div>
         <!-- /.bakery-card -->
         <div class="bakery-card">
-          <button class="bakery-card-basket">
-            <svg class="bakery-card-icon">
-              <use xlink:href="img/icons.svg#shopping-cart"></use>
-            </svg>
-          </button>
+          <div id="bakery-8"></div>
           <div class="bakery-amount-block hiden">
             <button class="bakery-amount-left"><</button>
             <span class="bakery-amount">0</span>
@@ -705,6 +644,7 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
+    <script src="js/basket.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
