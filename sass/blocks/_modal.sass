@@ -38,19 +38,7 @@
         display: flex
         justify-content: center
         align-items: center
-  &__close
-    position: absolute
-    top: 17px
-    right: 18px
-    text-decoration: none
-    cursor: pointer
-  &__button
-    margin-top: 15px
-    &:active
-      outline: none
-    &:focus
-      outline: none
-  &-portfolio
+  &-basket
     &__overlay
       position: fixed
       top: 0
@@ -79,6 +67,7 @@
       transition: opacity 0.2s
       &--visible
         min-width: 100%
+        /*min-height: 500px*/
         min-height: 80%
         position: fixed
         /*top: 9%*/
@@ -88,7 +77,19 @@
         display: flex
         justify-content: center
         align-items: center
-  &-georg
+  &__close
+    position: absolute
+    top: 17px
+    right: 18px
+    text-decoration: none
+    cursor: pointer
+  &__button
+    margin-top: 15px
+    &:active
+      outline: none
+    &:focus
+      outline: none
+  &-portfolio
     &__overlay
       position: fixed
       top: 0
@@ -173,30 +174,7 @@
         visibility: visible
         opacity: 1
         z-index: 102
-    &-portfolio
-      position: absolute
-      top: 17px
-      right: 18px
-      text-decoration: none
-      cursor: pointer
-      display: flex
-      width: 25px
-      height: 25px
-      border-radius: 50%
-      padding: 0
-      align-items: center
-      padding: 5px
-      flex-direction: column
-      border: none
-      background-color: inherit
-      cursor: pointer
-      outline: none
-      &--visible
-        display: flex
-        visibility: visible
-        opacity: 1
-        z-index: 102
-    &-georg
+    &-basket
       position: absolute
       top: 17px
       right: 18px
