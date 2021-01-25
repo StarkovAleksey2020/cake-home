@@ -1,3 +1,4 @@
+$(document).ready(function () {
 const state = {
   count: 0,
   cake_1: 0,
@@ -23,7 +24,7 @@ const mutations = {
     state.count++
   },
   increment_item(state, { name }) {
-    if (name === "cake-1") { state.cake_1++; }
+    if (name === "cake-1") { state.cake_1++; console.log('state.cake_1: ',state.cake_1); }
     else if (name === "cake-2") { state.cake_2++;}
     else if (name === "cake-3") state.cake_3++;
     else if (name === "cake-4") state.cake_4++;
@@ -40,6 +41,25 @@ const mutations = {
     else if (name === "bakery-7") state.mini_cake_7++;
     else if (name === "bakery-8") state.mini_cake_8++;
   },
+    restore_state(state, { name, count }) {
+    if (name === "cake-1") { state.cake_1 += count; state.count += count; }
+    else if (name === "cake-2") { state.cake_2 += count; state.count += count;}
+    else if (name === "cake-3") { state.cake_3 += count; state.count += count;}
+    else if (name === "cake-4") { state.cake_4 += count; state.count += count;}
+    else if (name === "cake-5") { state.cake_5 += count; state.count += count;}
+    else if (name === "cake-6") { state.cake_6 += count; state.count += count;}
+    else if (name === "cake-7") { state.cake_7 += count; state.count += count;}
+    else if (name === "cake-8") { state.cake_8 += count; state.count += count;}
+    else if (name === "bakery-1") { state.mini_cake_1 += count; state.count += count;}
+    else if (name === "bakery-2") { state.mini_cake_2 += count; state.count += count;}
+    else if (name === "bakery-3") { state.mini_cake_3 += count; state.count += count;}
+    else if (name === "bakery-4") { state.mini_cake_4 += count; state.count += count;}
+    else if (name === "bakery-5") { state.mini_cake_5 += count; state.count += count;}
+    else if (name === "bakery-6") { state.mini_cake_6 += count; state.count += count;}
+    else if (name === "bakery-7") { state.mini_cake_7 += count; state.count += count;}
+    else if (name === "bakery-8") { state.mini_cake_8 += count; state.count += count;}
+  },
+
 };
 const store = new Vuex.Store({ state, getters, mutations });
 
@@ -48,7 +68,7 @@ new Vue({
   'store': store,
   data() {
     return {
-      basket: {},
+      basket: [],
       cakes: [
         { code: 'cake-1', name: "«Торжество»" },
         { code: 'cake-2', name: "«Одиссей»" },
@@ -71,6 +91,41 @@ new Vue({
       ],
     }
   },
+  created() {
+    let currentState = JSON.parse(localStorage.getItem('basket'));
+    if (!jQuery.isEmptyObject(currentState)) {
+      /*
+      console.log('currentState: ', currentState);
+      console.log('currentState.cake-1: ', currentState.cake_7);
+      */
+      if (currentState.cake_1 > 0) { this.$store.commit('restore_state', { name: "cake-1", count: currentState.cake_1 }); }
+      if (currentState.cake_2 > 0) { this.$store.commit('restore_state', { name: "cake-2", count: currentState.cake_2 }); }
+      if (currentState.cake_3 > 0) { this.$store.commit('restore_state', { name: "cake-3", count: currentState.cake_3 }); }
+      if (currentState.cake_4 > 0) { this.$store.commit('restore_state', { name: "cake-4", count: currentState.cake_4 }); }
+      if (currentState.cake_5 > 0) { this.$store.commit('restore_state', { name: "cake-5", count: currentState.cake_5 }); }
+      if (currentState.cake_6 > 0) { this.$store.commit('restore_state', { name: "cake-6", count: currentState.cake_6 }); }
+      if (currentState.cake_7 > 0) { this.$store.commit('restore_state', { name: "cake-7", count: currentState.cake_7 }); }
+      if (currentState.cake_8 > 0) { this.$store.commit('restore_state', { name: "cake-8", count: currentState.cake_8}); }
+    }
+      console.log('this.$store.state.count: ', this.$store.state.count);
+      console.log('this.$store.state.cake_1: ', this.$store.state.cake_1);
+      console.log('this.$store.state.cake_2: ', this.$store.state.cake_2);
+      console.log('this.$store.state.cake_3: ', this.$store.state.cake_3);
+      console.log('this.$store.state.cake_4: ', this.$store.state.cake_4);
+      console.log('this.$store.state.cake_5: ', this.$store.state.cake_5);
+      console.log('this.$store.state.cake_6: ', this.$store.state.cake_6);
+      console.log('this.$store.state.cake_7: ', this.$store.state.cake_7);
+      console.log('this.$store.state.cake_8: ', this.$store.state.cake_8);
+      console.log('this.$store.state.mini_cake_1: ', this.$store.state.mini_cake_1);
+      console.log('this.$store.state.mini_cake_2: ', this.$store.state.mini_cake_2);
+      console.log('this.$store.state.mini_cake_3: ', this.$store.state.mini_cake_3);
+      console.log('this.$store.state.mini_cake_4: ', this.$store.state.mini_cake_4);
+      console.log('this.$store.state.mini_cake_5: ', this.$store.state.mini_cake_5);
+      console.log('this.$store.state.mini_cake_6: ', this.$store.state.mini_cake_6);
+      console.log('this.$store.state.mini_cake_7: ', this.$store.state.mini_cake_7);
+      console.log('this.$store.state.mini_cake_8: ', this.$store.state.mini_cake_8);
+
+  },
   computed: {
     count() {
       return this.$store.state.count;
@@ -78,89 +133,108 @@ new Vue({
   },
   methods: {
     onClick() {
+      localStorage.removeItem('basket');
+      this.basket = [];
       if (this.$store.state.cake_1 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-1').name;
         let cakeAmount = this.$store.state.cake_1;
-        this.basket = Object.assign(this.basket, { cakeName, cakeAmount })
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_1 = 0;*/
       };
       if (this.$store.state.cake_2 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-2').name;
         let cakeAmount = this.$store.state.cake_2;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_2 = 0;*/
       };
       if (this.$store.state.cake_3 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-3').name;
         let cakeAmount = this.$store.state.cake_3;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_3 = 0;*/
       };
       if (this.$store.state.cake_4 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-4').name;
         let cakeAmount = this.$store.state.cake_4;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_4 = 0;*/
       };
       if (this.$store.state.cake_5 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-5').name;
         let cakeAmount = this.$store.state.cake_5;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_5 = 0;*/
       };
       if (this.$store.state.cake_6 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-6').name;
         let cakeAmount = this.$store.state.cake_6;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_6 = 0;*/
       };
       if (this.$store.state.cake_7 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-7').name;
         let cakeAmount = this.$store.state.cake_7;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_7 = 0;*/
       };
       if (this.$store.state.cake_8 > 0) {
         let cakeName = this.cakes.find(cake => cake.code === 'cake-8').name;
         let cakeAmount = this.$store.state.cake_8;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.cake_8 = 0;*/
       };
       if (this.$store.state.mini_cake_1 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-1').name;
         let cakeAmount = this.$store.state.mini_cake_1;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_1 = 0;*/
       };
       if (this.$store.state.mini_cake_2 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-2').name;
         let cakeAmount = this.$store.state.mini_cake_2;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_2 = 0;*/
       };
       if (this.$store.state.mini_cake_3 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-3').name;
         let cakeAmount = this.$store.state.mini_cake_3;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_3 = 0;*/
       };
       if (this.$store.state.mini_cake_4 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-4').name;
         let cakeAmount = this.$store.state.mini_cake_4;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_4 = 0;*/
       };
       if (this.$store.state.mini_cake_5 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-5').name;
         let cakeAmount = this.$store.state.mini_cake_5;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_5 = 0;*/
       };
       if (this.$store.state.mini_cake_6 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-6').name;
         let cakeAmount = this.$store.state.mini_cake_6;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_6 = 0;*/
       };
       if (this.$store.state.mini_cake_7 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-7').name;
         let cakeAmount = this.$store.state.mini_cake_7;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_7 = 0;*/
       };
       if (this.$store.state.mini_cake_8 > 0) {
         let cakeName = this.baking.find(bakery => bakery.code === 'bakery-8').name;
         let cakeAmount = this.$store.state.mini_cake_8;
-        this.basket = Object.assign(this.basket, {cakeName, cakeAmount})
+        this.basket.push({ cakeName, cakeAmount });
+        /*this.$store.state.mini_cake_8 = 0;*/
       };
-      localStorage.removeItem('basket');
-      console.log('basket: ', this.basket);
-      localStorage.setItem('basket', JSON.stringify(this.basket));
+
+      /*localStorage.setItem('basket', JSON.stringify(this.basket));*/
+      /*console.log(localStorage.getItem('basket'));*/
+      localStorage.setItem('basket', JSON.stringify(this.$store.state));
       window.location.href = "basket.html";
     }
   },
@@ -174,8 +248,9 @@ new Vue({
   `,
 });
 
-$(document).ready(function () {
+
   // Модальное окно со слайдером с корзиной
+  /*
   var modalBasketButton = $('[data-toggle=modal-basket]');
   var closeModalButton = $(".menu-close-basket");
   var modalOverlay = $(".modal-basket__overlay");
@@ -201,13 +276,14 @@ $(document).ready(function () {
     modalOverlay.removeClass("modal-basket__overlay--visible");
     modalDialog.removeClass("modal-basket__dialog--visible");
   }
+  */
   // обработка нажатия ESC
   $(document).keyup(function (e) {
     if (e.keyCode === 27) {
       closeModalBasket(e);
     }
   });
-});
+
 new Vue({
   'el': "#cake-1",
   'store': store,
@@ -416,29 +492,5 @@ new Vue({
     <button class="cake-button-contract" @click="addItems">В корзину</button>
   `,
 });
-new Vue({
-  'el': "#basket-modal-info",
-  'store': store,
-  data() {
-    return {
-      basketSaved: {},
-    }
-  },
-  created() {
-    this.basketSaved = JSON.parse(localStorage.getItem('basket'));
-    console.log('this.basketSaved: ', this.basketSaved);
-  },
-  methods: {
-    clearStorage() {
-      this.basketSaved = '';
-      localStorage.removeItem('basket')
-    }
-  },
-  template: `
-    <ul class="basket-list">
-      <li v-for="item in basketSaved" :key="item.name">
-        {{ item.name }} - {{ item.amount}}
-      </li>
-    </ul>
-  `,
+
 });
