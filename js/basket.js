@@ -59,23 +59,10 @@ const mutations = {
     else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount++; }
     else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount++; }
   },
-  restore_state(state, { name, count }) {
-    if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount = count; state.count += count; }
-    else if (name === "cake-2") { let cakeItem = state.cake.find(x => x.code === 'cake_2'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-3") { let cakeItem = state.cake.find(x => x.code === 'cake_3'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-4") { let cakeItem = state.cake.find(x => x.code === 'cake_4'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-5") { let cakeItem = state.cake.find(x => x.code === 'cake_5'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-6") { let cakeItem = state.cake.find(x => x.code === 'cake_6'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-7") { let cakeItem = state.cake.find(x => x.code === 'cake_7'); cakeItem.amount = count; state.count += count;}
-    else if (name === "cake-8") { let cakeItem = state.cake.find(x => x.code === 'cake_8'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-1") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_1'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-2") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_2'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-3") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_3'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-4") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_4'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-5") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_5'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-6") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_6'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount = count; state.count += count;}
-    else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount = count; state.count += count;}
+  restore_state(state, { code, amount }) {
+    let cakeItem = state.cake.find(x => x.code === code);
+    cakeItem.amount = amount;
+    state.count += amount;
   },
 
 };
@@ -87,6 +74,7 @@ new Vue({
   data() {
     return {
       basket: [],
+      basketSaved: {},
       cakes: [
         { code: 'cake-1', name: "«Торжество»" },
         { code: 'cake-2', name: "«Одиссей»" },
@@ -108,26 +96,10 @@ new Vue({
     }
   },
   created() {
-    let currentState = JSON.parse(localStorage.getItem('basket'));
-    /*console.log(localStorage.getItem('basket'));*/
-    if (!jQuery.isEmptyObject(currentState)) {
-      if (currentState.cake_1 > 0) { this.$store.commit('restore_state', { name: "cake-1", count: currentState.cake_1 }); }
-      if (currentState.cake_2 > 0) { this.$store.commit('restore_state', { name: "cake-2", count: currentState.cake_2 }); }
-      if (currentState.cake_3 > 0) { this.$store.commit('restore_state', { name: "cake-3", count: currentState.cake_3 }); }
-      if (currentState.cake_4 > 0) { this.$store.commit('restore_state', { name: "cake-4", count: currentState.cake_4 }); }
-      if (currentState.cake_5 > 0) { this.$store.commit('restore_state', { name: "cake-5", count: currentState.cake_5 }); }
-      if (currentState.cake_6 > 0) { this.$store.commit('restore_state', { name: "cake-6", count: currentState.cake_6 }); }
-      if (currentState.cake_7 > 0) { this.$store.commit('restore_state', { name: "cake-7", count: currentState.cake_7 }); }
-      if (currentState.cake_8 > 0) { this.$store.commit('restore_state', { name: "cake-8", count: currentState.cake_8}); }
-      if (currentState.mini_cake_1 > 0) { this.$store.commit('restore_state', { name: "bakery-1", count: currentState.mini_cake_1 }); }
-      if (currentState.mini_cake_2 > 0) { this.$store.commit('restore_state', { name: "bakery-2", count: currentState.mini_cake_2 }); }
-      if (currentState.mini_cake_3 > 0) { this.$store.commit('restore_state', { name: "bakery-3", count: currentState.mini_cake_3 }); }
-      if (currentState.mini_cake_4 > 0) { this.$store.commit('restore_state', { name: "bakery-4", count: currentState.mini_cake_4 }); }
-      if (currentState.mini_cake_5 > 0) { this.$store.commit('restore_state', { name: "bakery-5", count: currentState.mini_cake_5 }); }
-      if (currentState.mini_cake_6 > 0) { this.$store.commit('restore_state', { name: "bakery-6", count: currentState.mini_cake_6 }); }
-      if (currentState.mini_cake_7 > 0) { this.$store.commit('restore_state', { name: "bakery-7", count: currentState.mini_cake_7 }); }
-      if (currentState.mini_cake_8 > 0) { this.$store.commit('restore_state', { name: "bakery-8", count: currentState.mini_cake_8 }); }
-    }
+    this.basketSaved = JSON.parse(localStorage.getItem('basket'));
+      this.basketSaved.cake.forEach((arrayItem) => {
+        this.$store.commit('restore_state', { code: arrayItem.code, amount: arrayItem.amount });
+      });
   },
   computed: {
     count() {
@@ -136,11 +108,6 @@ new Vue({
   },
   methods: {
     onClick() {
-      /*
-      this.$store.state.cake.forEach(function (arrayItem) {
-        console.log('In main: ',arrayItem.code, arrayItem.name, arrayItem.amount);
-      });
-      */
       localStorage.setItem('basket', JSON.stringify(this.$store.state.cake));
       window.location.href = "basket.html";
     }
