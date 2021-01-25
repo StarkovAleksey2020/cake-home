@@ -1,4 +1,15 @@
 .basket
+  &-wrapper
+    max-width: 1440px
+    width: 70%
+    min-height: 500px
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 20px 40px
+    flex-wrap: wrap
   &-list
     width: 500px
     min-height: 600px
@@ -8,3 +19,31 @@
     color: #000000
   &-link
     color: #000000
+  &-title
+    font-size: 32px
+    line-height: 36px
+    margin-bottom: 30px
+  &-subtitle
+    font-size: 26px
+    line-height: 28px
+  &-item
+    font-size: 20px
+    line-height: 24px
+    display: flex
+    &-name
+      width: 200px
+    &-amount
+      width: 50px
+  &-button
+    &-back
+      width: 98px
+      min-height: 36px
+      border-radius: 4px
+      background: #A67122
+      outline: none
+      border: none
+      box-shadow: none
+      color: #FFFFFF
+      cursor: pointer
+      &:hover
+        background: #7D5314
