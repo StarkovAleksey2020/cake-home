@@ -42,10 +42,27 @@ $(document).ready(function () {
       else if (name === "bakery-7") state.mini_cake_7++;
       else if (name === "bakery-8") state.mini_cake_8++;
     },
+    restore_state(state, { name, count }) {
+      if (name === "cake-1") { state.cake_1 += count; state.count += count; }
+      else if (name === "cake-2") { state.cake_2 += count; state.count += count;}
+      else if (name === "cake-3") { state.cake_3 += count; state.count += count;}
+      else if (name === "cake-4") { state.cake_4 += count; state.count += count;}
+      else if (name === "cake-5") { state.cake_5 += count; state.count += count;}
+      else if (name === "cake-6") { state.cake_6 += count; state.count += count;}
+      else if (name === "cake-7") { state.cake_7 += count; state.count += count;}
+      else if (name === "cake-8") { state.cake_8 += count; state.count += count;}
+      else if (name === "bakery-1") { state.mini_cake_1 += count; state.count += count;}
+      else if (name === "bakery-2") { state.mini_cake_2 += count; state.count += count;}
+      else if (name === "bakery-3") { state.mini_cake_3 += count; state.count += count;}
+      else if (name === "bakery-4") { state.mini_cake_4 += count; state.count += count;}
+      else if (name === "bakery-5") { state.mini_cake_5 += count; state.count += count;}
+      else if (name === "bakery-6") { state.mini_cake_6 += count; state.count += count;}
+      else if (name === "bakery-7") { state.mini_cake_7 += count; state.count += count;}
+      else if (name === "bakery-8") { state.mini_cake_8 += count; state.count += count;}
+    },
+
   };
   const store = new Vuex.Store({ state, getters, mutations });
-
-
 
   new Vue({
     'el': "#basket-modal-info",
@@ -56,39 +73,48 @@ $(document).ready(function () {
       }
     },
     created() {
-      /*
-      this.basketSaved = JSON.parse(localStorage.getItem('basket'));
-      console.log('localStorage.getItem: ', JSON.parse(localStorage.getItem('basket')));
-      console.log('this.basketSaved.cakeName: ', this.basketSaved.cakeName);
-      console.log('this.basketSaved.cakeAmount: ', this.basketSaved.cakeAmount);
-      */
       let currentState = JSON.parse(localStorage.getItem('basket'));
-      this.basketSaved = currentState;
-      /*this.$store.state = JSON.parse(currentState);*/
-      console.log('currentState: ', currentState);
-      /*console.log('this.basketSaved: ', this.basketSaved);*/
-      /*
-        console.log('this.$store.state.cake_1: ', this.$store.state.cake_1);
-        console.log('this.$store.state.cake_2: ', this.$store.state.cake_2);
-        console.log('this.$store.state.cake_3: ', this.$store.state.cake_3);
-        console.log('this.$store.state.cake_4: ', this.$store.state.cake_4);
-        console.log('this.$store.state.cake_5: ', this.$store.state.cake_5);
-        console.log('this.$store.state.cake_6: ', this.$store.state.cake_6);
-        console.log('this.$store.state.cake_7: ', this.$store.state.cake_7);
-        console.log('this.$store.state.cake_8: ', this.$store.state.cake_8);
-        console.log('this.$store.state.mini_cake_1: ', this.$store.state.mini_cake_1);
-        console.log('this.$store.state.mini_cake_2: ', this.$store.state.mini_cake_2);
-        console.log('this.$store.state.mini_cake_3: ', this.$store.state.mini_cake_3);
-        console.log('this.$store.state.mini_cake_4: ', this.$store.state.mini_cake_4);
-        console.log('this.$store.state.mini_cake_5: ', this.$store.state.mini_cake_5);
-        console.log('this.$store.state.mini_cake_6: ', this.$store.state.mini_cake_6);
-        console.log('this.$store.state.mini_cake_7: ', this.$store.state.mini_cake_7);
-        console.log('this.$store.state.mini_cake_8: ', this.$store.state.mini_cake_8);
-        */
+      /*this.basketSaved = currentState;*/
+      if (!jQuery.isEmptyObject(currentState)) {
+        if (currentState.cake_1 > 0) { this.$store.commit('restore_state', { name: "cake-1", count: currentState.cake_1 }); }
+        if (currentState.cake_2 > 0) { this.$store.commit('restore_state', { name: "cake-2", count: currentState.cake_2 }); }
+        if (currentState.cake_3 > 0) { this.$store.commit('restore_state', { name: "cake-3", count: currentState.cake_3 }); }
+        if (currentState.cake_4 > 0) { this.$store.commit('restore_state', { name: "cake-4", count: currentState.cake_4 }); }
+        if (currentState.cake_5 > 0) { this.$store.commit('restore_state', { name: "cake-5", count: currentState.cake_5 }); }
+        if (currentState.cake_6 > 0) { this.$store.commit('restore_state', { name: "cake-6", count: currentState.cake_6 }); }
+        if (currentState.cake_7 > 0) { this.$store.commit('restore_state', { name: "cake-7", count: currentState.cake_7 }); }
+        if (currentState.cake_8 > 0) { this.$store.commit('restore_state', { name: "cake-8", count: currentState.cake_8}); }
+        if (currentState.mini_cake_1 > 0) { this.$store.commit('restore_state', { name: "bakery-1", count: currentState.mini_cake_1 }); }
+        if (currentState.mini_cake_2 > 0) { this.$store.commit('restore_state', { name: "bakery-2", count: currentState.mini_cake_2 }); }
+        if (currentState.mini_cake_3 > 0) { this.$store.commit('restore_state', { name: "bakery-3", count: currentState.mini_cake_3 }); }
+        if (currentState.mini_cake_4 > 0) { this.$store.commit('restore_state', { name: "bakery-4", count: currentState.mini_cake_4 }); }
+        if (currentState.mini_cake_5 > 0) { this.$store.commit('restore_state', { name: "bakery-5", count: currentState.mini_cake_5 }); }
+        if (currentState.mini_cake_6 > 0) { this.$store.commit('restore_state', { name: "bakery-6", count: currentState.mini_cake_6 }); }
+        if (currentState.mini_cake_7 > 0) { this.$store.commit('restore_state', { name: "bakery-7", count: currentState.mini_cake_7 }); }
+        if (currentState.mini_cake_8 > 0) { this.$store.commit('restore_state', { name: "bakery-8", count: currentState.mini_cake_8 }); }
+      }
+/*
+    console.log('this.$store.state.cake_1: ', this.$store.state.cake_1);
+    console.log('this.$store.state.cake_2: ', this.$store.state.cake_2);
+    console.log('this.$store.state.cake_3: ', this.$store.state.cake_3);
+    console.log('this.$store.state.cake_4: ', this.$store.state.cake_4);
+    console.log('this.$store.state.cake_5: ', this.$store.state.cake_5);
+    console.log('this.$store.state.cake_6: ', this.$store.state.cake_6);
+    console.log('this.$store.state.cake_7: ', this.$store.state.cake_7);
+    console.log('this.$store.state.cake_8: ', this.$store.state.cake_8);
+    console.log('this.$store.state.mini_cake_1: ', this.$store.state.mini_cake_1);
+    console.log('this.$store.state.mini_cake_2: ', this.$store.state.mini_cake_2);
+    console.log('this.$store.state.mini_cake_3: ', this.$store.state.mini_cake_3);
+    console.log('this.$store.state.mini_cake_4: ', this.$store.state.mini_cake_4);
+    console.log('this.$store.state.mini_cake_5: ', this.$store.state.mini_cake_5);
+    console.log('this.$store.state.mini_cake_6: ', this.$store.state.mini_cake_6);
+    console.log('this.$store.state.mini_cake_7: ', this.$store.state.mini_cake_7);
+    console.log('this.$store.state.mini_cake_8: ', this.$store.state.mini_cake_8);
+    */
     },
     methods: {
       goBack() {
-        localStorage.setItem('basket', JSON.stringify(this.basketSaved));
+        localStorage.setItem('basket', JSON.stringify(this.$store.state));
         window.location.href = "index.html";
       }
     },

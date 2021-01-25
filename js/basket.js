@@ -41,7 +41,7 @@ const mutations = {
     else if (name === "bakery-7") state.mini_cake_7++;
     else if (name === "bakery-8") state.mini_cake_8++;
   },
-    restore_state(state, { name, count }) {
+  restore_state(state, { name, count }) {
     if (name === "cake-1") { state.cake_1 += count; state.count += count; }
     else if (name === "cake-2") { state.cake_2 += count; state.count += count;}
     else if (name === "cake-3") { state.cake_3 += count; state.count += count;}
@@ -93,11 +93,8 @@ new Vue({
   },
   created() {
     let currentState = JSON.parse(localStorage.getItem('basket'));
+    /*console.log(localStorage.getItem('basket'));*/
     if (!jQuery.isEmptyObject(currentState)) {
-      /*
-      console.log('currentState: ', currentState);
-      console.log('currentState.cake-1: ', currentState.cake_7);
-      */
       if (currentState.cake_1 > 0) { this.$store.commit('restore_state', { name: "cake-1", count: currentState.cake_1 }); }
       if (currentState.cake_2 > 0) { this.$store.commit('restore_state', { name: "cake-2", count: currentState.cake_2 }); }
       if (currentState.cake_3 > 0) { this.$store.commit('restore_state', { name: "cake-3", count: currentState.cake_3 }); }
@@ -106,7 +103,16 @@ new Vue({
       if (currentState.cake_6 > 0) { this.$store.commit('restore_state', { name: "cake-6", count: currentState.cake_6 }); }
       if (currentState.cake_7 > 0) { this.$store.commit('restore_state', { name: "cake-7", count: currentState.cake_7 }); }
       if (currentState.cake_8 > 0) { this.$store.commit('restore_state', { name: "cake-8", count: currentState.cake_8}); }
+      if (currentState.mini_cake_1 > 0) { this.$store.commit('restore_state', { name: "bakery-1", count: currentState.mini_cake_1 }); }
+      if (currentState.mini_cake_2 > 0) { this.$store.commit('restore_state', { name: "bakery-2", count: currentState.mini_cake_2 }); }
+      if (currentState.mini_cake_3 > 0) { this.$store.commit('restore_state', { name: "bakery-3", count: currentState.mini_cake_3 }); }
+      if (currentState.mini_cake_4 > 0) { this.$store.commit('restore_state', { name: "bakery-4", count: currentState.mini_cake_4 }); }
+      if (currentState.mini_cake_5 > 0) { this.$store.commit('restore_state', { name: "bakery-5", count: currentState.mini_cake_5 }); }
+      if (currentState.mini_cake_6 > 0) { this.$store.commit('restore_state', { name: "bakery-6", count: currentState.mini_cake_6 }); }
+      if (currentState.mini_cake_7 > 0) { this.$store.commit('restore_state', { name: "bakery-7", count: currentState.mini_cake_7 }); }
+      if (currentState.mini_cake_8 > 0) { this.$store.commit('restore_state', { name: "bakery-8", count: currentState.mini_cake_8 }); }
     }
+    /*
       console.log('this.$store.state.count: ', this.$store.state.count);
       console.log('this.$store.state.cake_1: ', this.$store.state.cake_1);
       console.log('this.$store.state.cake_2: ', this.$store.state.cake_2);
@@ -124,7 +130,7 @@ new Vue({
       console.log('this.$store.state.mini_cake_6: ', this.$store.state.mini_cake_6);
       console.log('this.$store.state.mini_cake_7: ', this.$store.state.mini_cake_7);
       console.log('this.$store.state.mini_cake_8: ', this.$store.state.mini_cake_8);
-
+      */
   },
   computed: {
     count() {
@@ -133,107 +139,6 @@ new Vue({
   },
   methods: {
     onClick() {
-      localStorage.removeItem('basket');
-      this.basket = [];
-      if (this.$store.state.cake_1 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-1').name;
-        let cakeAmount = this.$store.state.cake_1;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_1 = 0;*/
-      };
-      if (this.$store.state.cake_2 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-2').name;
-        let cakeAmount = this.$store.state.cake_2;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_2 = 0;*/
-      };
-      if (this.$store.state.cake_3 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-3').name;
-        let cakeAmount = this.$store.state.cake_3;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_3 = 0;*/
-      };
-      if (this.$store.state.cake_4 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-4').name;
-        let cakeAmount = this.$store.state.cake_4;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_4 = 0;*/
-      };
-      if (this.$store.state.cake_5 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-5').name;
-        let cakeAmount = this.$store.state.cake_5;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_5 = 0;*/
-      };
-      if (this.$store.state.cake_6 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-6').name;
-        let cakeAmount = this.$store.state.cake_6;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_6 = 0;*/
-      };
-      if (this.$store.state.cake_7 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-7').name;
-        let cakeAmount = this.$store.state.cake_7;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_7 = 0;*/
-      };
-      if (this.$store.state.cake_8 > 0) {
-        let cakeName = this.cakes.find(cake => cake.code === 'cake-8').name;
-        let cakeAmount = this.$store.state.cake_8;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.cake_8 = 0;*/
-      };
-      if (this.$store.state.mini_cake_1 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-1').name;
-        let cakeAmount = this.$store.state.mini_cake_1;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_1 = 0;*/
-      };
-      if (this.$store.state.mini_cake_2 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-2').name;
-        let cakeAmount = this.$store.state.mini_cake_2;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_2 = 0;*/
-      };
-      if (this.$store.state.mini_cake_3 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-3').name;
-        let cakeAmount = this.$store.state.mini_cake_3;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_3 = 0;*/
-      };
-      if (this.$store.state.mini_cake_4 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-4').name;
-        let cakeAmount = this.$store.state.mini_cake_4;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_4 = 0;*/
-      };
-      if (this.$store.state.mini_cake_5 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-5').name;
-        let cakeAmount = this.$store.state.mini_cake_5;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_5 = 0;*/
-      };
-      if (this.$store.state.mini_cake_6 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-6').name;
-        let cakeAmount = this.$store.state.mini_cake_6;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_6 = 0;*/
-      };
-      if (this.$store.state.mini_cake_7 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-7').name;
-        let cakeAmount = this.$store.state.mini_cake_7;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_7 = 0;*/
-      };
-      if (this.$store.state.mini_cake_8 > 0) {
-        let cakeName = this.baking.find(bakery => bakery.code === 'bakery-8').name;
-        let cakeAmount = this.$store.state.mini_cake_8;
-        this.basket.push({ cakeName, cakeAmount });
-        /*this.$store.state.mini_cake_8 = 0;*/
-      };
-
-      /*localStorage.setItem('basket', JSON.stringify(this.basket));*/
-      /*console.log(localStorage.getItem('basket'));*/
       localStorage.setItem('basket', JSON.stringify(this.$store.state));
       window.location.href = "basket.html";
     }
