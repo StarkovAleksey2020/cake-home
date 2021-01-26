@@ -133,18 +133,17 @@
     justify-content: center
     align-items: center
     margin-top: 10px
-    padding-top: 10px
     &-wrapper
       max-width: 1440px
       width: 90%
       min-height: 120px
       position: relative
       display: flex
-      flex-direction: row
+      flex-direction: column
       justify-content: space-around
       align-items: center
       margin: 0 auto
-      padding: 20px 40px
+      padding: 10px
       flex-wrap: wrap
     &-address
       width: 100%
@@ -160,6 +159,8 @@
       font-size: 20px
       line-height: 22px
       color: #FFFFFF
+      margin: 0
+      padding: 0
     &-contacts
       width: 100%
       display: flex
@@ -167,25 +168,37 @@
       align-items: center
     &-phone
       margin-left: 10px
+      text-decoration: none
+      display: flex
+      align-items: center
+      justify-content: flex-start
       &__link
         &--icon
           width: 26px
           height: 20px
           filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(0%) hue-rotate(225deg) brightness(101%) contrast(101%)
           cursor: pointer
+          margin-right: 8px
         &--num
+          font-size: 18px
           text-decoration: none
           color: #FFFFFF
           cursor: pointer
     &-email
       margin-left: 10px
+      text-decoration: none
+      display: flex
+      align-items: center
+      justify-content: flex-start
       &__link
         &--icon
           width: 26px
           height: 20px
           filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(0%) hue-rotate(225deg) brightness(101%) contrast(101%)
           cursor: pointer
+          margin-right: 8px
         &--email
+          font-size: 18px
           text-decoration: none
           color: #FFFFFF
           cursor: pointer
