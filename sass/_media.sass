@@ -133,6 +133,18 @@
         top: -240px
     &-bottom
       bottom: 96px
+  .about
+    &-info
+      width: 80%
+  .training
+    &-certificates
+      &-block
+        width: 80%
+        justify-content: center
+    &-certificate
+      height: 120px
+      &__modal
+        height: 340px
 @media (max-width: 768px)
   .container
     &-training
@@ -484,6 +496,10 @@
     &-slider
       width: 400px
       min-height: 300px
+  .training
+    &-certificate
+      &__modal
+        height: 280px
 @media (max-width: 500px)
   .about
     &-title
@@ -566,6 +582,12 @@
       line-height: 22px
   .shadow
     bottom: 180px
+  .training
+    &-certificate
+      height: 90px
+      &__modal
+        width: 280px
+        height: 400px
 @media (min-width: 320px) and (max-width: 450px)
   .about
     &-wrapper
@@ -618,6 +640,11 @@
     &-slider
       width: 260px
       min-height: 180px
+  .training
+    &-certificate
+      height: 80px
+      &__modal
+        height: 280px
 @media only screen and (max-device-height: 750px) and (orientation: landscape)
   .certificates
     &-slider
@@ -625,27 +652,15 @@
       /*height: 300px*/
       width: 350px
       height: auto
-  .portfolio
-    &-slider
-      height: 300px
-      width: 300px
-    &-buttons
-      &__image
-        &--right, &--left
-          width: 20px
-          height: 20px
-  .weather
-    &-slider
-      height: 300px
-      width: 300px
-    &-buttons
-      &__image
-        &--right, &--left
-          width: 20px
-          height: 20px
   .modal
     &-certificate
       &__dialog
         &--visible
           min-width: 80%
           min-height: 90%
+  .training
+    &-certificate
+      height: 90px
+      &__modal
+        width: 280px
+        height: 400px

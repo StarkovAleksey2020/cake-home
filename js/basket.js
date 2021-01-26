@@ -122,42 +122,6 @@ new Vue({
   `,
 });
 
-
-  // Модальное окно со слайдером с корзиной
-  /*
-  var modalBasketButton = $('[data-toggle=modal-basket]');
-  var closeModalButton = $(".menu-close-basket");
-  var modalOverlay = $(".modal-basket__overlay");
-
-  modalBasketButton.on('click', openModalBasket);
-  closeModalButton.on('click', closeModalBasket);
-  modalOverlay.on('click', closeModalBasket);
-
-  function openModalBasket() {
-    var modalOverlay = $(".modal-basket__overlay");
-    var modalDialog = $(".modal-basket__dialog");
-    var closeModalButton = $(".menu-close-basket");
-    closeModalButton.addClass("menu-close-basket--visible");
-    modalOverlay.addClass("modal-basket__overlay--visible");
-    modalDialog.addClass("modal-basket__dialog--visible");
-  }
-  function closeModalBasket(event) {
-    event.preventDefault();
-    var modalOverlay = $(".modal-basket__overlay");
-    var modalDialog = $(".modal-basket__dialog");
-    var closeModalButton = $(".menu-close-basket");
-    closeModalButton.removeClass("menu-close-basket--visible");
-    modalOverlay.removeClass("modal-basket__overlay--visible");
-    modalDialog.removeClass("modal-basket__dialog--visible");
-  }
-  */
-  // обработка нажатия ESC
-  $(document).keyup(function (e) {
-    if (e.keyCode === 27) {
-      closeModalBasket(e);
-    }
-  });
-
 new Vue({
   'el': "#cake-1",
   'store': store,

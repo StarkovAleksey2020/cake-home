@@ -113,29 +113,93 @@ $(document).ready(function () {
     methods: {
       goBack() {
         localStorage.setItem('basket', JSON.stringify(this.$store.state));
-        window.location.href = "index.html";
+        window.location.href = "index.html#cake";
       }
     },
     template: `
-  <div>
-    <section class="basket">
+  <div class="basket">
+    <header class="basket-header">
+      <div class="basket-header-wrapper">
+        <div class="basket-header-logo">
+          <a href="index.html" class="basket-header-link" @click="goBack">
+            Лакомка
+          </a>
+        </div>
+        <div class="basket-contacts-phone">
+          <a
+            href="tel:8800"
+            class="basket-contacts-phone basket-contacts-phone__link"
+          >
+            <img
+              src="img/phone-call.svg"
+              alt="Icon: phone-call"
+              class="basket-contacts-phone__link basket-contacts-phone__link--icon"
+            />
+            <span
+              class="basket-contacts-phone__link basket-contacts-phone__link--num"
+              >+7 (914) 123 45 67</span
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+    <section class="basket-block">
       <div class="basket-wrapper">
         <span class="basket-title">Корзина</span>
         <br />
-        <span class="basket-divider">----------------------------------------------</span><br />
         <div v-for="item in basketSaved" :key="item.code">
           <div class="basket-item" v-if="item.amount > 0">
             <span class="basket-item-name">{{ item.name }}</span>
             <span class="basket-item-amount">{{ item.amount }}</span>
           </div>
         </div>
-        <span class="basket-divider">----------------------------------------------</span><br />
-        <div class="basket-item">
+        <div class="basket-item basket-item-total">
           <span class="basket-item-name">Итого:</span>
           <span class="basket-item-amount">{{$store.state.total}}.00 руб.</span><br />
         </div>
-        <span class="basket-divider basket-divider-total">----------------------------------------------</span><br />
         <button @click="goBack" class="basket-button-back">Вернуться</button>
+      </div>
+    </section>
+    <section class="basket-footer">
+      <div class="basket-footer-wrapper">
+        <div class="basket-footer-address">
+          <p class="basket-footer-text">Наш адрес: Иркутский район, с. Хомутово</p>
+        </div>
+        <div class="basket-footer-contacts">
+          <h2 class="basket-footer-text">Контакты:</h2>
+          <div class="basket-footer-phone">
+            <a
+              href="tel:8800"
+              class="basket-footer-phone basket-footer-phone__link"
+            >
+              <img
+                src="img/phone-call.svg"
+                alt="Icon: phone-call"
+                class="basket-footer-phone__link basket-footer-phone__link--icon"
+              />
+              <span
+                class="basket-footer-phone__link basket-footer-phone__link--num"
+                >+7 (914) 123 45 67</span
+              >
+            </a>
+          </div>
+          <div class="basket-footer-email">
+            <a
+              href="mailto:lakomka@gmail.com"
+              class="basket-footer-email basket-footer-email__link"
+            >
+              <img
+                src="img/email.svg"
+                alt="Icon: email"
+                class="basket-footer-email__link basket-footer-email__link--icon"
+              />
+              <span
+                class="basket-footer-email__link basket-footer-email__link--email"
+                >lakomka@gmail.com</span
+              >
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </div>

@@ -240,7 +240,12 @@ $(document).ready(function () {
 
   var certificatesSlider = new Swiper('.certificates-slider', {
     // Optional parameters
-    loop: false,
+    loop: true,
+    navigation: {
+      prevEl: '.certificates-buttons__left',
+      nextEl: '.certificates-buttons__right',
+    },
+
   });
 
 });

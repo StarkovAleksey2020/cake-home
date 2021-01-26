@@ -44,6 +44,20 @@
           <div class="header-background"></div>
           <!-- /.header-background -->
           <div class="header-navbar-logo">
+            <div class="menu-btn">
+              <svg class="menu-btn-icon">
+                <use xlink:href="img/icons.svg#menu"></use>
+              </svg>
+            </div>
+            <!-- /.menu-btn -->
+            <button class="menu-close hiden">
+              <img
+                src="img/close.svg"
+                alt="Icon: close"
+                class="menu-close-image"
+              />
+            </button>
+
             <a href="index.html" class="header-logo">
               <h3 class="header-logo-title">Лакомка</h3>
             </a>
@@ -64,19 +78,6 @@
             </li>
           </ul>
           <div id="basket"></div>
-          <div class="menu-btn">
-            <svg class="menu-btn-icon">
-              <use xlink:href="img/icons.svg#menu"></use>
-            </svg>
-          </div>
-          <!-- /.menu-btn -->
-          <button class="menu-close hiden">
-            <img
-              src="img/close.svg"
-              alt="Icon: close"
-              class="menu-close-image"
-            />
-          </button>
         </nav>
         <!-- /.header-navbar -->
         <h1 class="main-title translate" data-speed="0.5">
@@ -151,17 +152,31 @@
               Гулина Инна - основатель и шеф-кондитер Лакомки. Карьеру кондитера
               начала в 2011 году. После признания качества продукции друзьями и
               знакомыми приступила к выполнению заказов. В 2020 году подтвердила
-              квалификацию получив
-              <a
-                href="#about"
-                class="about-cert"
-                data-toggle="modal-certificate"
-                >сертификат</a
-              >
-              мастера-кондитера.
+              квалификацию пройдя обучение на мастера-кондитера.
             </p>
           </div>
           <!-- /.about-info -->
+          <div class="training-certificates-block">
+            <img
+              src="img/cert-1.jpeg"
+              alt="sertificate one"
+              class="training-certificate training-certificate--1"
+              data-toggle="modal-certificate"
+            />
+            <img
+              src="img/cert-2.jpeg"
+              alt="sertificate two"
+              class="training-certificate training-certificate--2"
+              data-toggle="modal-certificate"
+            />
+            <img
+              src="img/cert-3.jpeg"
+              alt="sertificate three"
+              class="training-certificate training-certificate--3"
+              data-toggle="modal-certificate"
+            />
+          </div>
+          <!-- /.training-certificates -->
         </div>
         <!-- /.about-block -->
       </div>
@@ -586,11 +601,45 @@
         <button class="menu-close-certificate">
           <img src="img/close.svg" alt="Icon: close" class="menu-close-image" />
         </button>
+        <div class="certificates-buttons-block">
+          <a href="#" class="certificates-buttons certificates-buttons__left">
+            <svg
+              class="certificates-buttons__image certificates-buttons__image--left"
+            >
+              <use xlink:href="img/icons.svg#arrow-prev"></use>
+            </svg>
+          </a>
+          <a href="#" class="certificates-buttons certificates-buttons__right">
+            <svg
+              class="certificates-buttons__image certificates-buttons__image--right"
+            >
+              <use xlink:href="img/icons.svg#arrow-next"></use>
+            </svg>
+          </a>
+        </div>
+        <!-- /.certificates-buttons-block -->
+
         <div class="swiper-container certificates-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img
                 src="img/cert-1.jpeg"
+                alt="sertificate one"
+                class="training-certificate training-certificate__modal"
+                data-toggle="modal-certificate"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="img/cert-2.jpeg"
+                alt="sertificate one"
+                class="training-certificate training-certificate__modal"
+                data-toggle="modal-certificate"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="img/cert-3.jpeg"
                 alt="sertificate one"
                 class="training-certificate training-certificate__modal"
                 data-toggle="modal-certificate"
