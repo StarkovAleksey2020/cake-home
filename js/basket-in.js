@@ -43,34 +43,42 @@ $(document).ready(function () {
     increment(state) {
       state.count++
     },
-  increment_item(state, { name }) {
-    if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount++; }
-    else if (name === "cake-2") { let cakeItem = state.cake.find(x => x.code === 'cake_2'); cakeItem.amount++;}
-    else if (name === "cake-3") { let cakeItem = state.cake.find(x => x.code === 'cake_3'); cakeItem.amount++; }
-    else if (name === "cake-4") { let cakeItem = state.cake.find(x => x.code === 'cake_4'); cakeItem.amount++; }
-    else if (name === "cake-5") { let cakeItem = state.cake.find(x => x.code === 'cake_5'); cakeItem.amount++; }
-    else if (name === "cake-6") { let cakeItem = state.cake.find(x => x.code === 'cake_6'); cakeItem.amount++; }
-    else if (name === "cake-7") { let cakeItem = state.cake.find(x => x.code === 'cake_7'); cakeItem.amount++; }
-    else if (name === "cake-8") { let cakeItem = state.cake.find(x => x.code === 'cake_8'); cakeItem.amount++; }
-    else if (name === "bakery-1") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_1'); cakeItem.amount++; }
-    else if (name === "bakery-2") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_2'); cakeItem.amount++; }
-    else if (name === "bakery-3") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_3'); cakeItem.amount++; }
-    else if (name === "bakery-4") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_4'); cakeItem.amount++; }
-    else if (name === "bakery-5") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_5'); cakeItem.amount++; }
-    else if (name === "bakery-6") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_6'); cakeItem.amount++; }
-    else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount++; }
-    else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount++; }
-  },
-  restore_state(state, { code, amount, price }) {
-    let cakeItem = state.cake.find(x => x.code === code);
-    cakeItem.amount = amount;
-    state.count += amount;
-    state.total += Number(amount) * price;
-    console.log('price: ', price);
-    console.log('amount: ', amount);
-    console.log('state.total: ', state.total);
-  },
-
+    increment_item(state, { name }) {
+      if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount++; }
+      else if (name === "cake-2") { let cakeItem = state.cake.find(x => x.code === 'cake_2'); cakeItem.amount++;}
+      else if (name === "cake-3") { let cakeItem = state.cake.find(x => x.code === 'cake_3'); cakeItem.amount++; }
+      else if (name === "cake-4") { let cakeItem = state.cake.find(x => x.code === 'cake_4'); cakeItem.amount++; }
+      else if (name === "cake-5") { let cakeItem = state.cake.find(x => x.code === 'cake_5'); cakeItem.amount++; }
+      else if (name === "cake-6") { let cakeItem = state.cake.find(x => x.code === 'cake_6'); cakeItem.amount++; }
+      else if (name === "cake-7") { let cakeItem = state.cake.find(x => x.code === 'cake_7'); cakeItem.amount++; }
+      else if (name === "cake-8") { let cakeItem = state.cake.find(x => x.code === 'cake_8'); cakeItem.amount++; }
+      else if (name === "bakery-1") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_1'); cakeItem.amount++; }
+      else if (name === "bakery-2") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_2'); cakeItem.amount++; }
+      else if (name === "bakery-3") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_3'); cakeItem.amount++; }
+      else if (name === "bakery-4") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_4'); cakeItem.amount++; }
+      else if (name === "bakery-5") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_5'); cakeItem.amount++; }
+      else if (name === "bakery-6") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_6'); cakeItem.amount++; }
+      else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount++; }
+      else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount++; }
+    },
+    restore_state(state, { code, amount, price }) {
+      let cakeItem = state.cake.find(x => x.code === code);
+      cakeItem.amount = amount;
+      state.count += amount;
+      state.total += Number(amount) * price;
+    },
+    amout_up(state, { code }) {
+      let cakeItem = state.cake.find(x => x.code === code);
+      state.total += cakeItem.price;
+      cakeItem.amount++;
+      state.count++;
+    },
+    amout_down(state, { code }) {
+      let cakeItem = state.cake.find(x => x.code === code);
+      state.total -= cakeItem.price;
+      cakeItem.amount--;
+      state.count--;
+    },
   };
   const store = new Vuex.Store({ state, getters, mutations });
 
@@ -108,12 +116,17 @@ $(document).ready(function () {
         this.$store.commit('restore_state', { code: arrayItem.code, amount: arrayItem.amount, price: arrayItem.price });
       });
       this.totalCost = this.$store.total;
-      console.log(this.$store.total);
     },
     methods: {
       goBack() {
         localStorage.setItem('basket', JSON.stringify(this.$store.state));
         window.location.href = "index.html#cake";
+      },
+      amountUp(item) {
+        this.$store.commit('amout_up', { code: item.code });
+      },
+      amountDown(item) {
+        this.$store.commit('amout_down', { code: item.code });
       }
     },
     template: `
@@ -146,20 +159,38 @@ $(document).ready(function () {
     <section class="basket-block">
       <div class="basket-wrapper">
         <span class="basket-title">Корзина</span>
-        <br />
-        <div v-for="item in basketSaved" :key="item.code">
+        <div v-if="$store.state.total > 0" class="basket-item-block" v-for="item in $store.state.cake" :key="item.code">
           <div class="basket-item" v-if="item.amount > 0">
             <span class="basket-item-name">{{ item.name }}</span>
+            <button class="basket-button-left" @click="amountDown(item)" :disabled="item.amount === 0"><</button>
             <span class="basket-item-amount">{{ item.amount }}</span>
+            <button class="basket-button-right" @click="amountUp(item)">></button>
+            <span class="basket-item-cost">{{ item.amount * item.price }}.00 руб.</span>
           </div>
         </div>
-        <div class="basket-item basket-item-total">
+        <div class="basket-item basket-item-total" v-if="$store.state.total > 0">
           <span class="basket-item-name">Итого:</span>
-          <span class="basket-item-amount">{{$store.state.total}}.00 руб.</span><br />
+          <span class="basket-item-cost basket-item-cost--total">{{$store.state.total}}.00 руб.</span><br />
+        </div>
+        <div v-if="$store.state.total === 0" class="basket-item-block">
+          <span class="basket-item-name">Ваша корзина пуста</span><br /><br />
         </div>
         <button @click="goBack" class="basket-button-back">Вернуться</button>
+        <img
+          src="img/empty-basket.jpg"
+          alt="Image: empty basket"
+          class="basket-image"
+          v-if="$store.state.total === 0"
+        />
+        <img
+          src="img/full_basket.png"
+          alt="Image: full basket"
+          class="basket-image"
+          v-if="$store.state.total > 0"
+        />
       </div>
     </section>
+    <!--
     <section class="basket-footer">
       <div class="basket-footer-wrapper">
         <div class="basket-footer-address">
@@ -202,6 +233,7 @@ $(document).ready(function () {
         </div>
       </div>
     </section>
+    -->
   </div>
   `,
   });
