@@ -122,6 +122,10 @@ $(document).ready(function () {
         localStorage.setItem('basket', JSON.stringify(this.$store.state));
         window.location.href = "index.html#cake";
       },
+      makeOrder() {
+        localStorage.setItem('basket', JSON.stringify(this.$store.state));
+        window.location.href = "order.html";
+      },
       amountUp(item) {
         this.$store.commit('amout_up', { code: item.code });
       },
@@ -175,7 +179,10 @@ $(document).ready(function () {
         <div v-if="$store.state.total === 0" class="basket-item-block">
           <span class="basket-item-name">Ваша корзина пуста</span><br /><br />
         </div>
-        <button @click="goBack" class="basket-button-back">Вернуться</button>
+        <div class="basket-button-block">
+          <button @click="goBack" class="basket-button-back">Вернуться</button>
+          <button @click="makeOrder" class="basket-button-order">Заказ</button>
+        </div>
         <img
           src="img/empty-basket.jpg"
           alt="Image: empty basket"
