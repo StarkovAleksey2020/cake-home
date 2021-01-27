@@ -1,3 +1,4 @@
+'use strict';
 $(document).ready(function () {
   const state = {
     cake: [

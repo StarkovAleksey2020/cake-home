@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function () {
   const translate = document.querySelectorAll(".translate");
   const main_title = document.querySelector(".main-title");

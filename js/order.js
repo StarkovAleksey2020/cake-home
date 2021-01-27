@@ -1,3 +1,4 @@
+'use strict';
 $(document).ready(function () {
     const state = {
     cake: [
@@ -24,7 +25,7 @@ $(document).ready(function () {
   const getters = { count: state => state.count };
   const mutations = {
     increment(state) {
-      state.count++
+      state.count++;
     },
     increment_item(state, { name }) {
       if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount++; }
