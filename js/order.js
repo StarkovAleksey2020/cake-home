@@ -81,7 +81,13 @@ $(document).ready(function () {
           { code: 'mini_cake-8', name: "«Блюз»" },
           { code: 'count', name: "Итого:" },
         ],
-
+        order: {
+          name: '',
+          phone: '',
+          email: '',
+          listing: '',
+          delivery: ''
+        },
       };
     },
     created() {
@@ -92,6 +98,7 @@ $(document).ready(function () {
         });
         this.totalCost = this.$store.total;
       }
+      this.order.listing = localStorage.getItem('basket');
     },
     methods: {
       goBack() {
@@ -103,7 +110,11 @@ $(document).ready(function () {
         window.location.href = "index.html#cake";
       },
       signOrder() {
+        localStorage.removeItem('basket');
         console.log("!_sign order");
+      },
+      clearDelivery() {
+        this.order.delivery = '';
       }
     },
     template: `
@@ -136,15 +147,20 @@ $(document).ready(function () {
     <section class="order-block">
       <div class="order-wrapper">
         <div class="order-button-block">
-          <button @click="goBack" class="order-button-back">Вернуться</button>
-          <button @click="cleanBasketAndGoBack" class="order-button-clear">Отменить</button>
-          <button @click="signOrder" class="order-button-sign" type="submit">Подтвердить</button>
+          <button @click="goBack" class="order-button-back">
+            <svg class="order-button-icon">
+              <use xlink:href="img/icons.svg#back-arrow"></use>
+            </svg>
+          </button>
+          <button @click="cleanBasketAndGoBack" class="order-button-clear">
+            <svg class="order-button-icon">
+              <use xlink:href="img/icons.svg#shopping-basket"></use>
+            </svg>
+          </button>
         </div>
-        <div class="order-wrapper">
-          <div class="order-total">
-            <span class="order-item-name">Сумма заказа:</span>
-            <span class="order-item-cost order-item-cost--total">{{$store.state.total}}.00 руб.</span>
-          </div>
+        <div class="order-total">
+          <span class="order-item-name">Сумма заказа:</span>
+          <span class="order-item-cost order-item-cost--total">{{$store.state.total}}.00 руб.</span>
         </div>
         <div class="order-form">
             <h3 class="order-subtitle">Уточните Ваши данные</h3>
@@ -157,6 +173,7 @@ $(document).ready(function () {
                   required
                   minlength="2"
                   placeholder="Имя *"
+                  v-model="order.name"
                 />
               </div>
               <!-- /.order__input-group -->
@@ -167,6 +184,7 @@ $(document).ready(function () {
                   class="input order__input phoneInput"
                   name="phone"
                   placeholder="Телефон *"
+                  v-model="order.phone"
                 />
               </div>
               <!-- /.order__input-group -->
@@ -177,6 +195,7 @@ $(document).ready(function () {
                   class="input order__input emailInput"
                   name="email"
                   placeholder="Email"
+                  v-model="order.email"
                 />
               </div>
               <!-- /.order__input-group -->
@@ -187,6 +206,7 @@ $(document).ready(function () {
                   class="input order__input-delivery"
                   name="delivery"
                   v-model="isDelivery"
+                  @click="clearDelivery"
                 />
                 <label for="delivery">Доставка</label>
               </div>
@@ -198,10 +218,22 @@ $(document).ready(function () {
                 class="message order__message"
                 name="message"
                 placeholder="Адрес доставки"
+                v-model="order.delivery"
               ></textarea>
-              <!--<button class="button footer__button" type="submit">
-                Отправить
-              </button>-->
+              <div class="order__input-group order__input-group--listing">
+                <input
+                  id="listing"
+                  type="text"
+                  class="input order__input"
+                  name="listing"
+                  v-model="order.listing"
+                />
+              </div>
+              <!-- /.order__input-group -->
+
+              <button class="button footer__button" type="submit" @click="signOrder">
+                Подтвердить
+              </button>
               <span class="order__info">* - обязательное поле</span>
             </form>
           </div>

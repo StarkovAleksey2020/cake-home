@@ -51,6 +51,9 @@
   .footer
     &-form
       width: 80%
+  .order
+    &-form
+      width: 80%
 @media (max-width: 1070px)
   .main
     &-block
@@ -110,6 +113,16 @@
     &-wrapper
       padding: 20px 20px
   .footer
+    &-wrapper
+      flex-direction: column
+    &-address
+      width: 100%
+    &-contacts
+      width: 100%
+      margin-bottom: 20px
+    &-form
+      width: 100%
+  .order
     &-wrapper
       flex-direction: column
     &-address
@@ -304,6 +317,55 @@
     &__button
       font-size: 16px
       line-height: 20px
+  .order
+    &-wrapper
+      width: 90%
+      padding: 20px
+    &-title
+    &-subtitle
+      font-size: 18px
+      line-height: 20px
+    &-text
+      font-size: 16px
+      line-height: 20px
+    &-address
+      min-height: 120px
+    &-contacts
+      min-height: 120px
+      &-email
+        font-size: 16px
+        &__link
+          &--email
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 10px 0 0
+      &-phone
+        font-size: 16px
+        &__link
+          &--num
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 15px 0 0
+      &-telegram
+        font-size: 16px
+        &__link
+          &--telegram
+            font-size: 14px
+            line-height: 20px
+          &--icon
+            margin: 0 5px 0 0
+    &__input
+      &-group
+        flex-basis: 100%
+        &--phone
+          margin-right: 0
+    &__message
+      flex-basis: 100%
+    &__button
+      font-size: 16px
+      line-height: 20px
   .form
     padding: 0
   .certificates
@@ -401,6 +463,11 @@
     &-screenshots
       flex-wrap: wrap
   .footer
+    &-block
+      flex-direction: column
+    &-form
+      margin-top: 20px
+  .order
     &-block
       flex-direction: column
     &-form
@@ -559,6 +626,33 @@
             margin-right: 3px
           &--email
             font-size: 16px
+  .order
+    &-block
+      width: 95%
+    &-wrapper
+      padding: 10px
+    &-button
+      &-block
+        margin-bottom: 5px
+    &-total
+      display: flex
+      align-items: center
+    &-item
+      &-name
+        font-size: 20px
+        line-height: 24px
+      &-cost
+        &--total
+          font-size: 20px
+          line-height: 24px
+    &-subtitle
+      font-size: 22px
+      line-height: 24px
+      margin: 15px auto 10px auto
+    &__input
+      &-group
+        &--delivery
+          font-size: 18px
 @media (max-width: 500px)
   .about
     &-title
@@ -584,6 +678,22 @@
       min-height: 90px
     &-wrapper
       padding: 20px 10px
+    &-title
+      font-size: 18px
+      line-height: 22px
+    &-subtitle
+      font-size: 16px
+      line-height: 20px
+    &-text
+      font-size: 14px
+      line-height: 16px
+    &__button
+      width: 50%
+  .order
+    &-address, &-contacts
+      min-height: 90px
+    &-wrapper
+      padding: 0
     &-title
       font-size: 18px
       line-height: 22px
@@ -676,6 +786,26 @@
   .footer
     &__input-group
       flex-basis: 100%
+  .order
+    &-header
+      &-wrapper
+        width: 90%
+      &-logo
+        font-size: 28px
+    &__input-group
+      flex-basis: 100%
+    &-item
+      &-name
+        font-size: 18px
+        line-height: 24px
+      &-cost
+        &--total
+          font-size: 18px
+          line-height: 24px
+    &-button
+      &-icon
+        width: 28px
+        height: 28px
   .swiper
     &-slide
       justify-content: flex-start
@@ -719,6 +849,22 @@
       height: 80px
       &__modal
         height: 280px
+  .order
+    &-header
+      &-wrapper
+        width: 90%
+      &-logo
+        font-size: 28px
+    &__input-group
+      flex-basis: 100%
+    &-item
+      &-name
+        font-size: 18px
+        line-height: 24px
+      &-cost
+        &--total
+          font-size: 18px
+          line-height: 24px
 @media only screen and (max-device-height: 750px) and (orientation: landscape)
   .certificates
     &-slider

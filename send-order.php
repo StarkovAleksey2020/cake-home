@@ -12,7 +12,7 @@ $message = $_POST['message'];
 $listing = $_POST['listing'];
 
 // Формирование самого письма
-$title = "Новое обращение на странице Cake-Home";
+$title = "Новый заказ на странице Cake-Home";
 $body = "
 <h2>Новое обращение</h2>
 <b>Имя:</b> $name<br>
