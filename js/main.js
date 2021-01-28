@@ -1,122 +1,138 @@
 "use strict";
 $(document).ready(function () {
+  /*
+  const Vue = window.vue;
+  const Vuex = window.vuex;
+  const Swiper = window.swiper;
+*/
   const translate = document.querySelectorAll(".translate");
-  const main_title = document.querySelector(".main-title");
+  const mainTitle = document.querySelector(".main-title");
   const header = document.querySelector("header");
-  const header_logo_icon = document.querySelector(".header-logo-icon");
-  const header_logo_title = document.querySelector(".header-logo-title");
-  const header_menu_btn = document.querySelector(".menu-btn");
-  const header_menu_basket = document.querySelector(".menu-basket");
-  const header_menu_btn_close = document.querySelector(".menu-close");
-  const header_menu_link = document.getElementsByClassName("header-menu-link");
+  const headerLogoIcon = document.querySelector(".header-logo-icon");
+  const headerLogoTitle = document.querySelector(".header-logo-title");
+  const headerMenuBtn = document.querySelector(".menu-btn");
+  const headerMenuBasket = document.querySelector(".menu-basket");
+  const headerMenuBtnClose = document.querySelector(".menu-close");
+  const headerMenuLink = document.getElementsByClassName("header-menu-link");
   const shadow = document.querySelector(".shadow");
-  const header_background = document.querySelector(".header-background");
+  const headerBackground = document.querySelector(".header-background");
 
-  let header_height = header.offsetHeight;
+  let headerHeight = header.offsetHeight;
 
   window.addEventListener('scroll', () => {
     let scroll = window.pageYOffset;
+
+    let color0 = "brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(915%) hue-rotate(345deg) brightness(93%) contrast(95%)";
+    let color1 = "brightness(0) saturate(100%) invert(78%) sepia(8%) saturate(172%) hue-rotate(15deg) brightness(95%) contrast(87%)";
+    let color2 = "brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(1223%) hue-rotate(157deg) brightness(80%) contrast(75%)";
+    let color3 = "brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(221%) hue-rotate(22deg) brightness(95%) contrast(92%)";
+    let color4 = "brightness(0) saturate(100%) invert(44%) sepia(0%) saturate(3935%) hue-rotate(170deg) brightness(81%) contrast(92%)";
+    let color5 = "brightness(0) saturate(100%) invert(29%) sepia(6%) saturate(176%) hue-rotate(21deg) brightness(92%) contrast(88%)";
+    let color6 = "brightness(0) saturate(100%) invert(18%) sepia(1%) saturate(2588%) hue-rotate(21deg) brightness(106%) contrast(85%)";
+    let color7 = "brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(5851%) hue-rotate(142deg) brightness(81%) contrast(89%)";
+    let color8 = "brightness(0) saturate(100%) invert(7%) sepia(17%) saturate(25%) hue-rotate(314deg) brightness(97%) contrast(90%)";
+    let color9 = "brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(0%) hue-rotate(156deg) brightness(94%) contrast(99%)";
 
     translate.forEach(element => {
       let speed = element.dataset.speed;
       element.style.transform = `translateY(${scroll * speed}px)`;
 
-      main_title.style.opacity = -scroll / (header_height / 1.5) + 1;
-      shadow.style.opacity = scroll / header_height;
-      header_background.style.opacity = scroll / header_height;
+      mainTitle.style.opacity = -scroll / (headerHeight / 1.5) + 1;
+      shadow.style.opacity = scroll / headerHeight;
+      headerBackground.style.opacity = scroll / headerHeight;
       if (scroll < 80) {
-        header_logo_title.style.color = "#E7E6DD";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#E7E6DD";
+        for (let item of headerMenuLink) {
           item.style.color = "#E7E6DD";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(915%) hue-rotate(345deg) brightness(93%) contrast(95%)"; };
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(915%) hue-rotate(345deg) brightness(93%) contrast(95%)"; };
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(915%) hue-rotate(345deg) brightness(93%) contrast(95%)"; };
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color0; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color0; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color0; }
         
       } else if (scroll > 80 && scroll < 120) {
-        header_logo_title.style.color = "#B9B8B1";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#B9B8B1";
+        for (let item of headerMenuLink) {
           item.style.color = "#B9B8B1";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(78%) sepia(8%) saturate(172%) hue-rotate(15deg) brightness(95%) contrast(87%)"; };
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(78%) sepia(8%) saturate(172%) hue-rotate(15deg) brightness(95%) contrast(87%)"; };
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(78%) sepia(8%) saturate(172%) hue-rotate(15deg) brightness(95%) contrast(87%)"; };
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color1; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color1; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color1; }
 
       } else if (scroll > 120 && scroll < 180) {
-        header_logo_title.style.color = "#94938E";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#94938E";
+        for (let item of headerMenuLink) {
           item.style.color = "#94938E";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(1223%) hue-rotate(157deg) brightness(80%) contrast(75%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(1223%) hue-rotate(157deg) brightness(80%) contrast(75%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(75%) sepia(0%) saturate(1223%) hue-rotate(157deg) brightness(80%) contrast(75%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color2; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color2; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color2; }
         
       } else if (scroll > 180 && scroll < 240) {
-        header_logo_title.style.color = "#767672";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#767672";
+        for (let item of headerMenuLink) {
           item.style.color = "#767672";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(221%) hue-rotate(22deg) brightness(95%) contrast(92%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(221%) hue-rotate(22deg) brightness(95%) contrast(92%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(221%) hue-rotate(22deg) brightness(95%) contrast(92%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color3; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color3; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color3; }
         
       } else if (scroll > 240 && scroll < 300) {
-        header_logo_title.style.color = "#5E5E5B";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#5E5E5B";
+        for (let item of headerMenuLink) {
           item.style.color = "#5E5E5B";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(44%) sepia(0%) saturate(3935%) hue-rotate(170deg) brightness(81%) contrast(92%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(44%) sepia(0%) saturate(3935%) hue-rotate(170deg) brightness(81%) contrast(92%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(44%) sepia(0%) saturate(3935%) hue-rotate(170deg) brightness(81%) contrast(92%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color4; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color4; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color4; }
         
       } else if (scroll > 300 && scroll < 360) {
-        header_logo_title.style.color = "#4B4B49";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#4B4B49";
+        for (let item of headerMenuLink) {
           item.style.color = "#4B4B49";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(29%) sepia(6%) saturate(176%) hue-rotate(21deg) brightness(92%) contrast(88%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(29%) sepia(6%) saturate(176%) hue-rotate(21deg) brightness(92%) contrast(88%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(29%) sepia(6%) saturate(176%) hue-rotate(21deg) brightness(92%) contrast(88%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color5; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color5; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color5; }
         
       } else if (scroll > 360 && scroll < 420) {
-        header_logo_title.style.color = "#3C3C3A";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#3C3C3A";
+        for (let item of headerMenuLink) {
           item.style.color = "#3C3C3A";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(18%) sepia(1%) saturate(2588%) hue-rotate(21deg) brightness(106%) contrast(85%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(18%) sepia(1%) saturate(2588%) hue-rotate(21deg) brightness(106%) contrast(85%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(18%) sepia(1%) saturate(2588%) hue-rotate(21deg) brightness(106%) contrast(85%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color6; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color6; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color6; }
         
       } else if (scroll > 420 && scroll < 480) {
-        header_logo_title.style.color = "#30302E";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#30302E";
+        for (let item of headerMenuLink) {
           item.style.color = "#30302E";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(5851%) hue-rotate(142deg) brightness(81%) contrast(89%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(5851%) hue-rotate(142deg) brightness(81%) contrast(89%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(5851%) hue-rotate(142deg) brightness(81%) contrast(89%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color7; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color7; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color7; }
         
       } else if (scroll > 480 && scroll < 540) {
-        header_logo_title.style.color = "#1E1E1E";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#1E1E1E";
+        for (let item of headerMenuLink) {
           item.style.color = "#1E1E1E";
         }
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(7%) sepia(17%) saturate(25%) hue-rotate(314deg) brightness(97%) contrast(90%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(7%) sepia(17%) saturate(25%) hue-rotate(314deg) brightness(97%) contrast(90%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(7%) sepia(17%) saturate(25%) hue-rotate(314deg) brightness(97%) contrast(90%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color8; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color8; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color8; }
         
       } else if (scroll > 540) {
-        header_logo_title.style.color = "#000000";
-        for (let item of header_menu_link) {
+        headerLogoTitle.style.color = "#000000";
+        for (let item of headerMenuLink) {
           item.style.color = "#000000";
         }
 
-        if (header_menu_btn) { header_menu_btn.style.filter = "brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(0%) hue-rotate(156deg) brightness(94%) contrast(99%)";};
-        if (header_menu_basket) { header_menu_basket.style.filter = "brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(0%) hue-rotate(156deg) brightness(94%) contrast(99%)";};
-        if (header_menu_btn_close) { header_menu_btn_close.style.filter = "brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(0%) hue-rotate(156deg) brightness(94%) contrast(99%)";};
+        if (headerMenuBtn) { headerMenuBtn.style.filter = color9; }
+        if (headerMenuBasket) { headerMenuBasket.style.filter = color9; }
+        if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color9; }
       }
-    })
-  })
+    });
+  });
 
   // обработка мобильного меню
   var menuButton = $(".menu-btn");
@@ -129,19 +145,19 @@ $(document).ready(function () {
     menuButton.toggleClass("hiden");
     menuButtonClose.toggleClass("hiden");
     goTopButton.toggleClass("hiden");
-  })
+  });
   menuButton.on('click', function () {
     $(".navbar-bottom").toggleClass("navbar-bottom--visible");
     menuButton.toggleClass("hiden");
     menuButtonClose.toggleClass("hiden");
     goTopButton.toggleClass("hiden");
-  })
+  });
   menuButtonClose.on('click', function () {
     $(".navbar-bottom").toggleClass("navbar-bottom--visible");
     menuButton.toggleClass("hiden");
     menuButtonClose.toggleClass("hiden");
     goTopButton.toggleClass("hiden");
-  })
+  });
 
   // кнопка возврата в начало страницы
   var btn = $('#button');
@@ -194,21 +210,6 @@ $(document).ready(function () {
     });
   });
 
-  // обработка нажатия ESC
-  $(document).keyup(function (e) {
-    if (e.keyCode === 27) {
-      closeModal(e);
-      closeModalSertificate(e);
-    }
-  });
-  function closeModal(event) {
-    event.preventDefault();
-    $('input').val('');
-    $('textarea').val('');
-    $("input").removeClass("invalid");
-    $("label").remove(".invalid");
-  }
-
   // Маска номера телефона
   $(".phoneInput").mask("+7 (999) 999-99-99");
 
@@ -216,10 +217,6 @@ $(document).ready(function () {
   var modalSertificateButton = $('[data-toggle=modal-certificate]');
   var closeModalButton = $(".menu-close-certificate");
   var modalOverlay = $(".modal-certificate__overlay");
-
-  modalSertificateButton.on('click', openModalSertificate);
-  closeModalButton.on('click', closeModalSertificate);
-  modalOverlay.on('click', closeModalSertificate);
 
   function openModalSertificate() {
     var modalOverlay = $(".modal-certificate__overlay");
@@ -239,6 +236,10 @@ $(document).ready(function () {
     modalDialog.removeClass("modal-certificate__dialog--visible");
   }
 
+  modalSertificateButton.on('click', openModalSertificate);
+  closeModalButton.on('click', closeModalSertificate);
+  modalOverlay.on('click', closeModalSertificate);
+
   var certificatesSlider = new Swiper('.certificates-slider', {
     // Optional parameters
     loop: true,
@@ -246,7 +247,21 @@ $(document).ready(function () {
       prevEl: '.certificates-buttons__left',
       nextEl: '.certificates-buttons__right',
     },
+  });
 
+  // обработка нажатия ESC
+  function closeModal(event) {
+    event.preventDefault();
+    $('input').val('');
+    $('textarea').val('');
+    $("input").removeClass("invalid");
+    $("label").remove(".invalid");
+  }
+  $(document).keyup(function (e) {
+    if (e.keyCode === 27) {
+      closeModal(e);
+      closeModalSertificate(e);
+    }
   });
 
 });

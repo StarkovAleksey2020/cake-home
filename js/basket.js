@@ -19,30 +19,14 @@ $(document).ready(function () {
       { code: "mini_cake_7", name: "«Доффин»", amount: 0, price: 90.00 },
       { code: "mini_cake_8", name: "«Блюз»", amount: 0, price: 90.00 },
     ],
-  cake_1: 0,
-  cake_2: 0,
-  cake_3: 0,
-  cake_4: 0,
-  cake_5: 0,
-  cake_6: 0,
-  cake_7: 0,
-  cake_8: 0,
-  mini_cake_1: 0,
-  mini_cake_2: 0,
-  mini_cake_3: 0,
-  mini_cake_4: 0,
-  mini_cake_5: 0,
-  mini_cake_6: 0,
-  mini_cake_7: 0,
-  mini_cake_8: 0,
   count: 0,
 };
 const getters = { count: state => state.count };
 const mutations = {
   increment(state) {
-    state.count++
+    state.count++;
   },
-  increment_item(state, { name }) {
+  incrementItem(state, { name }) {
     if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount++; }
     else if (name === "cake-2") { let cakeItem = state.cake.find(x => x.code === 'cake_2'); cakeItem.amount++;}
     else if (name === "cake-3") { let cakeItem = state.cake.find(x => x.code === 'cake_3'); cakeItem.amount++; }
@@ -60,14 +44,19 @@ const mutations = {
     else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount++; }
     else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount++; }
   },
-  restore_state(state, { code, amount }) {
+  restoreState(state, { code, amount }) {
     let cakeItem = state.cake.find(x => x.code === code);
     cakeItem.amount = amount;
     state.count += amount;
   },
 
 };
-const store = new Vuex.Store({ state, getters, mutations });
+  
+  /*
+  const Vue = window.vue;
+  const Vuex = window.vuex;
+  */
+  const store = new Vuex.Store({ state, getters, mutations });
 
 new Vue({
   'el': "#basket",
@@ -94,13 +83,15 @@ new Vue({
         { code: 'mini_cake-7', name: "«Доффин»" },
         { code: 'mini_cake-8', name: "«Блюз»" },
       ],
-    }
+    };
   },
   created() {
     this.basketSaved = JSON.parse(localStorage.getItem('basket'));
+    if (this.basketSaved !== null) {
       this.basketSaved.cake.forEach((arrayItem) => {
-        this.$store.commit('restore_state', { code: arrayItem.code, amount: arrayItem.amount });
+        this.$store.commit('restoreState', { code: arrayItem.code, amount: arrayItem.amount });
       });
+    }
   },
   computed: {
     count() {
@@ -128,7 +119,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-1"});
+      this.$store.commit('incrementItem', { name: "cake-1"});
       this.$store.commit('increment');
       console.log(this.$store.state.cake);
     }
@@ -142,7 +133,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-2"});
+      this.$store.commit('incrementItem', { name: "cake-2"});
       this.$store.commit('increment');
     }
   },
@@ -155,7 +146,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-3"});
+      this.$store.commit('incrementItem', { name: "cake-3"});
       this.$store.commit('increment');
     }
   },
@@ -168,7 +159,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-4"});
+      this.$store.commit('incrementItem', { name: "cake-4"});
       this.$store.commit('increment');
     }
   },
@@ -181,7 +172,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-5"});
+      this.$store.commit('incrementItem', { name: "cake-5"});
       this.$store.commit('increment');
     }
   },
@@ -194,7 +185,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-6"});
+      this.$store.commit('incrementItem', { name: "cake-6"});
       this.$store.commit('increment');
     }
   },
@@ -207,7 +198,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-7"});
+      this.$store.commit('incrementItem', { name: "cake-7"});
       this.$store.commit('increment');
     }
   },
@@ -220,7 +211,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "cake-8"});
+      this.$store.commit('incrementItem', { name: "cake-8"});
       this.$store.commit('increment');
     }
   },
@@ -233,7 +224,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-1"});
+      this.$store.commit('incrementItem', { name: "bakery-1"});
       this.$store.commit('increment');
     }
   },
@@ -246,7 +237,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-2"});
+      this.$store.commit('incrementItem', { name: "bakery-2"});
       this.$store.commit('increment');
     }
   },
@@ -259,7 +250,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-3"});
+      this.$store.commit('incrementItem', { name: "bakery-3"});
       this.$store.commit('increment');
     }
   },
@@ -272,7 +263,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-4"});
+      this.$store.commit('incrementItem', { name: "bakery-4"});
       this.$store.commit('increment');
     }
   },
@@ -285,7 +276,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-5"});
+      this.$store.commit('incrementItem', { name: "bakery-5"});
       this.$store.commit('increment');
     }
   },
@@ -298,7 +289,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-6"});
+      this.$store.commit('incrementItem', { name: "bakery-6"});
       this.$store.commit('increment');
     }
   },
@@ -311,7 +302,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-7"});
+      this.$store.commit('incrementItem', { name: "bakery-7"});
       this.$store.commit('increment');
     }
   },
@@ -324,7 +315,7 @@ new Vue({
   'store': store,
   'methods': {
     'addItems': function () {
-      this.$store.commit('increment_item', { name: "bakery-8"});
+      this.$store.commit('incrementItem', { name: "bakery-8"});
       this.$store.commit('increment');
     }
   },

@@ -1,6 +1,10 @@
 'use strict';
 $(document).ready(function () {
 
+  /*
+  const Vue = window.vue;
+  const Vuex = window.vuex;
+*/
   const state = {
     cake: [
       { code: "cake_1", name: "«Торжество»", amount: 0, price: 1400.00 },
@@ -20,61 +24,27 @@ $(document).ready(function () {
       { code: "mini_cake_7", name: "«Доффин»", amount: 0, price: 90.00 },
       { code: "mini_cake_8", name: "«Блюз»", amount: 0, price: 90.00 },
     ],
-    cake_1: 0,
-    cake_2: 0,
-    cake_3: 0,
-    cake_4: 0,
-    cake_5: 0,
-    cake_6: 0,
-    cake_7: 0,
-    cake_8: 0,
-    mini_cake_1: 0,
-    mini_cake_2: 0,
-    mini_cake_3: 0,
-    mini_cake_4: 0,
-    mini_cake_5: 0,
-    mini_cake_6: 0,
-    mini_cake_7: 0,
-    mini_cake_8: 0,
     count: 0,
     total: 0
   };
   const getters = { count: state => state.count };
   const mutations = {
     increment(state) {
-      state.count++
+      state.count++;
     },
-    increment_item(state, { name }) {
-      if (name === "cake-1") { let cakeItem = state.cake.find(x => x.code === 'cake_1'); cakeItem.amount++; }
-      else if (name === "cake-2") { let cakeItem = state.cake.find(x => x.code === 'cake_2'); cakeItem.amount++;}
-      else if (name === "cake-3") { let cakeItem = state.cake.find(x => x.code === 'cake_3'); cakeItem.amount++; }
-      else if (name === "cake-4") { let cakeItem = state.cake.find(x => x.code === 'cake_4'); cakeItem.amount++; }
-      else if (name === "cake-5") { let cakeItem = state.cake.find(x => x.code === 'cake_5'); cakeItem.amount++; }
-      else if (name === "cake-6") { let cakeItem = state.cake.find(x => x.code === 'cake_6'); cakeItem.amount++; }
-      else if (name === "cake-7") { let cakeItem = state.cake.find(x => x.code === 'cake_7'); cakeItem.amount++; }
-      else if (name === "cake-8") { let cakeItem = state.cake.find(x => x.code === 'cake_8'); cakeItem.amount++; }
-      else if (name === "bakery-1") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_1'); cakeItem.amount++; }
-      else if (name === "bakery-2") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_2'); cakeItem.amount++; }
-      else if (name === "bakery-3") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_3'); cakeItem.amount++; }
-      else if (name === "bakery-4") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_4'); cakeItem.amount++; }
-      else if (name === "bakery-5") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_5'); cakeItem.amount++; }
-      else if (name === "bakery-6") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_6'); cakeItem.amount++; }
-      else if (name === "bakery-7") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_7'); cakeItem.amount++; }
-      else if (name === "bakery-8") { let cakeItem = state.cake.find(x => x.code === 'mini_cake_8'); cakeItem.amount++; }
-    },
-    restore_state(state, { code, amount, price }) {
+    restoreState(state, { code, amount, price }) {
       let cakeItem = state.cake.find(x => x.code === code);
       cakeItem.amount = amount;
       state.count += amount;
       state.total += Number(amount) * price;
     },
-    amout_up(state, { code }) {
+    amoutUp(state, { code }) {
       let cakeItem = state.cake.find(x => x.code === code);
       state.total += cakeItem.price;
       cakeItem.amount++;
       state.count++;
     },
-    amout_down(state, { code }) {
+    amoutDown(state, { code }) {
       let cakeItem = state.cake.find(x => x.code === code);
       state.total -= cakeItem.price;
       cakeItem.amount--;
@@ -91,32 +61,34 @@ $(document).ready(function () {
         basketSaved: {},
         totalCost: 0,
         cakes: [
-        { code: 'cake-1', name: "«Торжество»" },
-        { code: 'cake-2', name: "«Одиссей»" },
-        { code: 'cake-3', name: "«Восторг»" },
-        { code: 'cake-4', name: "«Юбиляр»" },
-        { code: 'cake-5', name: "«Ассорти»" },
-        { code: 'cake-6', name: "«Хоровод»" },
-        { code: 'cake-7', name: "«Карьер»" },
-        { code: 'cake-8', name: "«Бармалей»" },
-        { code: 'mini_cake-1', name: "«Утро»" },
-        { code: 'mini_cake-2', name: "«Титаник»" },
-        { code: 'mini_cake-3', name: "«Нуар»" },
-        { code: 'mini_cake-4', name: "«Блик»" },
-        { code: 'mini_cake-5', name: "«Взлет»" },
-        { code: 'mini_cake-6', name: "«Коралл»" },
-        { code: 'mini_cake-7', name: "«Доффин»" },
-        { code: 'mini_cake-8', name: "«Блюз»" },
-        { code: 'count', name: "Итого:" },
-      ],
-      }
+          { code: 'cake-1', name: "«Торжество»" },
+          { code: 'cake-2', name: "«Одиссей»" },
+          { code: 'cake-3', name: "«Восторг»" },
+          { code: 'cake-4', name: "«Юбиляр»" },
+          { code: 'cake-5', name: "«Ассорти»" },
+          { code: 'cake-6', name: "«Хоровод»" },
+          { code: 'cake-7', name: "«Карьер»" },
+          { code: 'cake-8', name: "«Бармалей»" },
+          { code: 'mini_cake-1', name: "«Утро»" },
+          { code: 'mini_cake-2', name: "«Титаник»" },
+          { code: 'mini_cake-3', name: "«Нуар»" },
+          { code: 'mini_cake-4', name: "«Блик»" },
+          { code: 'mini_cake-5', name: "«Взлет»" },
+          { code: 'mini_cake-6', name: "«Коралл»" },
+          { code: 'mini_cake-7', name: "«Доффин»" },
+          { code: 'mini_cake-8', name: "«Блюз»" },
+          { code: 'count', name: "Итого:" },
+        ],
+      };
     },
     created() {
       this.basketSaved = JSON.parse(localStorage.getItem('basket'));
-      this.basketSaved.forEach((arrayItem) => {
-        this.$store.commit('restore_state', { code: arrayItem.code, amount: arrayItem.amount, price: arrayItem.price });
-      });
-      this.totalCost = this.$store.total;
+      if (this.basketSaved !== null) {
+        this.basketSaved.forEach((arrayItem) => {
+          this.$store.commit('restoreState', { code: arrayItem.code, amount: arrayItem.amount, price: arrayItem.price });
+        });
+        this.totalCost = this.$store.total;
+      }
     },
     methods: {
       goBack() {
@@ -124,14 +96,18 @@ $(document).ready(function () {
         window.location.href = "index.html#cake";
       },
       makeOrder() {
-        localStorage.setItem('basket', JSON.stringify(this.$store.state));
+        localStorage.setItem('basket', JSON.stringify(this.$store.state.cake));
         window.location.href = "order.html";
       },
       amountUp(item) {
-        this.$store.commit('amout_up', { code: item.code });
+        this.$store.commit('amoutUp', { code: item.code });
       },
       amountDown(item) {
-        this.$store.commit('amout_down', { code: item.code });
+        this.$store.commit('amoutDown', { code: item.code });
+      },
+      cleanBasketAndGoBack() {
+        localStorage.removeItem('basket');
+        window.location.href = "index.html#cake";
       }
     },
     template: `
@@ -162,6 +138,11 @@ $(document).ready(function () {
       </div>
     </header>
     <section class="basket-block">
+      <div class="basket-button-block">
+        <button @click="goBack" class="basket-button-back">Вернуться</button>
+        <button @click="cleanBasketAndGoBack" class="basket-button-clear">Отменить</button>
+        <button @click="makeOrder" class="basket-button-order">Заказ</button>
+      </div>
       <div class="basket-wrapper">
         <span class="basket-title">Корзина</span>
         <div v-if="$store.state.total > 0" class="basket-item-block" v-for="item in $store.state.cake" :key="item.code">
@@ -179,10 +160,6 @@ $(document).ready(function () {
         </div>
         <div v-if="$store.state.total === 0" class="basket-item-block">
           <span class="basket-item-name">Ваша корзина пуста</span><br /><br />
-        </div>
-        <div class="basket-button-block">
-          <button @click="goBack" class="basket-button-back">Вернуться</button>
-          <button @click="makeOrder" class="basket-button-order">Заказ</button>
         </div>
         <img
           src="img/empty-basket.jpg"
