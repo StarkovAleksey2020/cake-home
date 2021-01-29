@@ -95,10 +95,12 @@ $(document).ready(function () {
       if (this.basketSaved !== null) {
         this.basketSaved.forEach((arrayItem) => {
           this.$store.commit('restoreState', { code: arrayItem.code, amount: arrayItem.amount, price: arrayItem.price });
+          if (arrayItem.amount > 0) {
+            this.order.listing += arrayItem.name + ' - ' + arrayItem.amount + '\n';
+          }
         });
         this.totalCost = this.$store.total;
       }
-      this.order.listing = localStorage.getItem('basket');
     },
     methods: {
       goBack() {
