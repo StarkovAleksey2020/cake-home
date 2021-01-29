@@ -2,6 +2,37 @@
   width: 100%
   height: 90vh
   position: relative
+  &-breadcrumbs
+    &-block
+      max-width: 1440px
+      width: 80%
+      margin: 0 auto
+      display: flex
+      justify-content: flex-start
+      align-items: center
+    &-home
+      width: 40px
+      min-height: 30px
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      font-size: 12px
+      line-height: 16px
+      margin: 10px 0
+      background: inherit
+      padding: 0
+      outline: none
+      border: none
+      &::after
+        content: '/'
+        margin-right: 8px
+        filter: brightness(0) saturate(100%) invert(49%) sepia(9%) saturate(721%) hue-rotate(169deg) brightness(98%) contrast(90%)
+      &:hover
+        filter: brightness(0) saturate(100%) invert(81%) sepia(81%) saturate(1486%) hue-rotate(317deg) brightness(89%) contrast(78%)
+    &-current
+      font-size: 14px
+      line-height: 16px
+      filter: brightness(0) saturate(100%) invert(49%) sepia(9%) saturate(721%) hue-rotate(169deg) brightness(98%) contrast(90%)
   &-image
     width: 250px
     height: auto
@@ -19,7 +50,7 @@
     flex-direction: column
     justify-content: flex-start
     align-items: flex-start
-    padding: 10px
+    padding: 0
     flex-wrap: wrap
     margin: 0 auto
   &-list
@@ -72,48 +103,58 @@
       margin-bottom: 15px
   &-button
     &-block
-      width: 100%
+      max-width: 1440px
+      width: 80%
+      margin: 0 auto
       display: flex
-      justify-content: space-around
+      justify-content: start
       margin-bottom: 20px
     &-back
-      width: 98px
-      min-height: 36px
-      border-radius: 4px
-      background: #A67122
+      width: 60px
+      height: 60px
+      border-radius: 50%
+      background: inherit
       outline: none
       border: none
       box-shadow: none
-      color: #FFFFFF
       cursor: pointer
       margin-right: 15px
+      text-align: end
       &:hover
-        background: #7D5314
+        background: #dadada
     &-order
-      width: 98px
-      min-height: 36px
-      border-radius: 4px
-      background: #359908
+      width: 30%
+      min-height: 50px
+      background-color: #CD9D55
+      color: #ffffff
+      border-radius: 8px
+      font-style: normal
+      font-weight: normal
+      font-size: 18px
+      line-height: 20px
+      display: flex
+      align-items: center
+      text-align: center
+      justify-content: center
       outline: none
       border: none
-      box-shadow: none
-      color: #FFFFFF
       cursor: pointer
-      &:hover
-        background: #266f05
+      margin-bottom: 10px
+    &:hover
+      background-color: #A67122
     &-clear
-      width: 98px
-      min-height: 36px
-      border-radius: 4px
-      background: #d3150e
+      width: 60px
+      height: 60px
+      border-radius: 50%
+      background: inherit
       outline: none
       border: none
       box-shadow: none
-      color: #FFFFFF
-      margin-right: 15px
       cursor: pointer
+      margin-right: 15px
+      text-align: end
       &:hover
-        background: #aa0e09
+        background: #dadada
     &-left, &-right
       width: 30px
       height: 30px
@@ -125,6 +166,12 @@
       border-radius: 50%
       &:hover
         background: #b1b1b1
+    &-icon
+      width: 20px
+      height: 20px
+      cursor: pointer
+      margin-right: 8px
+      filter: brightness(0) saturate(100%) invert(49%) sepia(9%) saturate(721%) hue-rotate(169deg) brightness(98%) contrast(90%)
   &-header
     width: 100%
     min-height: 50px

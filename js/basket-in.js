@@ -138,10 +138,25 @@ $(document).ready(function () {
       </div>
     </header>
     <section class="basket-block">
+      <div class="basket-breadcrumbs-block">
+          <button @click="goBack" class="basket-breadcrumbs-home">
+            <svg class="basket-button-icon">
+              <use xlink:href="img/icons.svg#home"></use>
+            </svg>
+          </button>
+          <span class="basket-breadcrumbs-current">Корзина</span>
+      </div>
       <div class="basket-button-block">
-        <button @click="goBack" class="basket-button-back">Вернуться</button>
-        <button @click="cleanBasketAndGoBack" class="basket-button-clear">Отменить</button>
-        <button @click="makeOrder" class="basket-button-order">Заказ</button>
+          <button @click="goBack" class="basket-button-back">
+            <svg class="order-button-icon">
+              <use xlink:href="img/icons.svg#back-arrow"></use>
+            </svg>
+          </button>
+          <button @click="cleanBasketAndGoBack" class="basket-button-clear">
+            <svg class="order-button-icon">
+              <use xlink:href="img/icons.svg#shopping-basket"></use>
+            </svg>
+          </button>
       </div>
       <div class="basket-wrapper">
         <span class="basket-title">Корзина</span>
@@ -161,6 +176,8 @@ $(document).ready(function () {
         <div v-if="$store.state.total === 0" class="basket-item-block">
           <span class="basket-item-name">Ваша корзина пуста</span><br /><br />
         </div>
+        <button @click="makeOrder" class="basket-button-order">Заказ</button>
+
         <img
           src="img/empty-basket.jpg"
           alt="Image: empty basket"

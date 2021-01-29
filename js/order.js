@@ -146,6 +146,15 @@ $(document).ready(function () {
     </header>
     <section class="order-block">
       <div class="order-wrapper">
+        <div class="order-breadcrumbs-block">
+          <button @click="goBack" class="order-breadcrumbs-home">
+            <svg class="order-button-icon order-button-icon--breadcrumbs">
+              <use xlink:href="img/icons.svg#home"></use>
+            </svg>
+          </button>
+          <span class="order-breadcrumbs-previous" @click="goBack">Корзина</span>
+          <span class="order-breadcrumbs-current">Заказ</span>
+        </div>
         <div class="order-button-block">
           <button @click="goBack" class="order-button-back">
             <svg class="order-button-icon">
@@ -230,7 +239,6 @@ $(document).ready(function () {
                 />
               </div>
               <!-- /.order__input-group -->
-
               <button class="button footer__button" type="submit" @click="signOrder">
                 Подтвердить
               </button>
