@@ -96,7 +96,7 @@ $(document).ready(function () {
         this.basketSaved.forEach((arrayItem) => {
           this.$store.commit('restoreState', { code: arrayItem.code, amount: arrayItem.amount, price: arrayItem.price });
           if (arrayItem.amount > 0) {
-            this.order.listing += arrayItem.name + ' - ' + arrayItem.amount + '\n';
+            this.order.listing += arrayItem.name + ' - ' + arrayItem.amount + ', ';
           }
         });
         this.totalCost = this.$store.total;
@@ -241,13 +241,13 @@ $(document).ready(function () {
                 v-model="order.delivery"
               ></textarea>
               <div class="order__input-group order__input-group--listing">
-                <input
+                <textarea
                   id="listing"
                   type="text"
                   class="input order__input"
                   name="listing"
                   v-model="order.listing"
-                />
+                /></textarea>
               </div>
               <!-- /.order__input-group -->
               <button class="button footer__button" type="submit" @click="signOrder">
