@@ -107,6 +107,10 @@ $(document).ready(function () {
         localStorage.setItem('basket', JSON.stringify(this.basketSaved));
         window.location.href = "basket.html";
       },
+      goHome() {
+        localStorage.setItem('basket', JSON.stringify(this.basketSaved));
+        window.location.href = "index.html";
+      },
       cleanBasketAndGoBack() {
         localStorage.removeItem('basket');
         window.location.href = "index.html#cake";
@@ -115,8 +119,13 @@ $(document).ready(function () {
         localStorage.removeItem('basket');
         console.log("!_sign order");
       },
-      clearDelivery() {
+      clearDelivery(delivery) {
         this.order.delivery = '';
+        if (!delivery) {
+          setTimeout(function () {
+            document.getElementById("deliveryArea").focus();
+          }, 500);
+        }
       }
     },
     template: `
@@ -149,7 +158,7 @@ $(document).ready(function () {
     <section class="order-block">
       <div class="order-wrapper">
         <div class="order-breadcrumbs-block">
-          <button @click="goBack" class="order-breadcrumbs-home">
+          <button @click="goHome" class="order-breadcrumbs-home">
             <svg class="order-button-icon order-button-icon--breadcrumbs">
               <use xlink:href="img/icons.svg#home"></use>
             </svg>
@@ -195,15 +204,14 @@ $(document).ready(function () {
                   class="input order__input phoneInput"
                   name="phone"
                   placeholder="Телефон *"
-                  v-model="order.phone"
                 />
               </div>
               <!-- /.order__input-group -->
               <div class="order__input-group order__input-group--email">
                 <input
-                  id="target"
-                  type="tel"
-                  class="input order__input emailInput"
+                  id="email"
+                  type="email"
+                  class="input order__input"
                   name="email"
                   placeholder="Email"
                   v-model="order.email"
@@ -217,12 +225,13 @@ $(document).ready(function () {
                   class="input order__input-delivery"
                   name="delivery"
                   v-model="isDelivery"
-                  @click="clearDelivery"
+                  @click="clearDelivery(isDelivery)"
                 />
                 <label for="delivery">Доставка</label>
               </div>
               <!-- /.order__input-group -->
               <textarea
+                id="deliveryArea"
                 v-if="isDelivery"
                 cols="30"
                 rows="10"
@@ -253,6 +262,46 @@ $(document).ready(function () {
   </div>
   `,
 
+  });
+
+  //валидация email
+  jQuery.validator.addMethod("emailfull", function(value, element) {
+    return this.optional(element) || /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i.test(value);
+  }, "Please enter valid email address!");
+
+  // Обработка форм
+  // Маска номера телефона
+  $(".phoneInput").mask("+7 (999) 999-99-99");
+
+  $('.form').each(function () {
+    $(this).validate({
+      rules: {
+        email: {
+          required: true,
+          email: true,
+          emailfull: true
+        },
+        phone: {
+          required: true,
+          minlength:18
+        }
+      },
+      errorClass: "invalid",
+      messages: {
+        name: {
+          required: "Пожалуйста укажите ваше имя",
+          minlength: "Минимальная длина поля 2 символа",
+        },
+        phone: {
+          required: "Пожалуйста укажите ваш номер телефона",
+          minlength: "Минимальная длина поля 10 символов",
+        },
+        email: {
+          required: "Пожалуйста укажите ваш email",
+          email: "Формат email - name@domain.com",
+        },
+      },
+    });
   });
 
 });

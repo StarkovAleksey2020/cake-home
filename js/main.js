@@ -1,10 +1,5 @@
 "use strict";
 $(document).ready(function () {
-  /*
-  const Vue = window.vue;
-  const Vuex = window.vuex;
-  const Swiper = window.swiper;
-*/
   const translate = document.querySelectorAll(".translate");
   const mainTitle = document.querySelector(".main-title");
   const header = document.querySelector("header");

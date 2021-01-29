@@ -87,10 +87,9 @@ new Vue({
   },
   created() {
     this.basketSaved = JSON.parse(localStorage.getItem('basket'));
-    console.log('this.basketSaved: ', this.basketSaved);
 
     if (this.basketSaved !== null) {
-      this.basketSaved.cake.forEach((arrayItem) => {
+      this.basketSaved.forEach((arrayItem) => {
         this.$store.commit('restoreState', { code: arrayItem.code, amount: arrayItem.amount });
       });
     }

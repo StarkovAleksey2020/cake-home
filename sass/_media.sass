@@ -790,6 +790,25 @@
   .footer
     &__input-group
       flex-basis: 100%
+    &__button
+      width: 100%
+      min-height: 50px
+  .basket
+    &-breadcrumbs
+      &-block
+        width: 90%
+    &-button
+      &-order
+        width: 100%
+        min-height: 50px
+      &-block
+        width: 95%
+      &-back, &-clear
+        width: 30px
+        height: 30px
+      &-icon
+        width: 16px
+        height: 16px
   .order
     &-header
       &-wrapper
@@ -807,9 +826,14 @@
           font-size: 18px
           line-height: 24px
     &-button
+      &-back, &-clear
+        width: 30px
+        height: 30px
       &-icon
-        width: 28px
-        height: 28px
+        width: 16px
+        height: 16px
+    &-form
+      margin-top: 0
   .swiper
     &-slide
       justify-content: flex-start
