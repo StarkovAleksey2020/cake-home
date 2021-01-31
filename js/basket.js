@@ -51,12 +51,7 @@ const mutations = {
   },
 
 };
-  
-  /*
-  const Vue = window.vue;
-  const Vuex = window.vuex;
-  */
-  const store = new Vuex.Store({ state, getters, mutations });
+const store = new Vuex.Store({ state, getters, mutations });
 
 new Vue({
   'el': "#basket",
@@ -329,4 +324,40 @@ new Vue({
   `,
 });
 
+  // анимация добавления итема в корзину
+  $(".cake-button-contract").on("click", function () {
+    let cart = $(".menu-basket-block");
+    // Находим имидж карточки, которую добавляем в корзину
+    let imgToDrag = $(this)
+      .parent()
+      .parent()
+      .find("img")
+      .eq(0);
+    
+    let imgClone = imgToDrag
+      .clone()
+      .offset({
+        top: imgToDrag.offset().top,
+        left: imgToDrag.offset().left
+      })
+      .css({
+        opacity: "0.8",
+        position: "absolute",
+        width: "170px",
+        height: "90px",
+        objectFit: "cover",
+        "z-index": "100"
+      })
+      .appendTo($("body"))
+      .animate({
+        top: cart.offset().top + 20,
+        left: cart.offset().left + 30,
+        width: 75,
+        height: 75
+      }, 1000, "linear");
+    imgClone.animate({
+      width: 0,
+      height: 0
+    },function () { $(this).detach(); });
+  });
 });
