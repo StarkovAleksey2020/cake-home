@@ -113,8 +113,8 @@ body
       /*color: #FFFFFF*/
   &-basket
     display: flex
-    width: 25px
-    height: 25px
+    width: 24px
+    height: 24px
     outline: none
     z-index: 100
     cursor: pointer
@@ -122,9 +122,33 @@ body
     background-color: inherit
     text-decoration: none
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2484%) hue-rotate(300deg) brightness(104%) contrast(70%)
+    &-block
+      width: 50px
+      height: 24px
+      display: flex
+      justify-content: space-between
+      align-items: center
+    &-icon
+      width: 20px
+      height: 20px
+      margin-right: 5px
     &-count
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      background: #be8228
+      color: #FFFFFF
       vertical-align: super
       font-size: 14px
+      line-height: 20px
+      z-index: 30
+      &-block
+        width: 20px
+        height: 20px
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
   &-button
     display: none
     /*background-color: inherit*/

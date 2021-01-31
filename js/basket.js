@@ -106,11 +106,15 @@ new Vue({
     }
   },
   template: `
-    <div class="menu-basket" @click='onClick' data-toggle="modal-basket">
-      <svg class="menu-btn-icon">
-        <use xlink:href="img/icons.svg#shopping-cart"></use>
-      </svg>
-      <span class="menu-basket-count"><sup>{{ count }}</sup></span>
+    <div class="menu-basket-block">
+      <div class="menu-basket" @click='onClick' data-toggle="modal-basket">
+        <svg class="menu-basket-icon">
+          <use xlink:href="img/icons.svg#shopping-cart"></use>
+        </svg>
+      </div>
+      <div class="menu-basket-count-block">
+        <span class="menu-basket-count">{{ count }}</span>
+      </div>
     </div>
   `,
 });

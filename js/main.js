@@ -7,6 +7,8 @@ $(document).ready(function () {
   const headerLogoTitle = document.querySelector(".header-logo-title");
   const headerMenuBtn = document.querySelector(".menu-btn");
   const headerMenuBasket = document.querySelector(".menu-basket");
+  const headerMenuBasketCountBlock = document.querySelector(".menu-basket-count-block");
+  const headerMenuBasketCount = document.querySelector(".menu-basket-count");
   const headerMenuBtnClose = document.querySelector(".menu-close");
   const headerMenuLink = document.getElementsByClassName("header-menu-link");
   const shadow = document.querySelector(".shadow");
@@ -27,6 +29,9 @@ $(document).ready(function () {
     let color7 = "brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(5851%) hue-rotate(142deg) brightness(81%) contrast(89%)";
     let color8 = "brightness(0) saturate(100%) invert(7%) sepia(17%) saturate(25%) hue-rotate(314deg) brightness(97%) contrast(90%)";
     let color9 = "brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(0%) hue-rotate(156deg) brightness(94%) contrast(99%)";
+
+    let colorCountBackground = "brightness(0) saturate(100%) invert(47%) sepia(81%) saturate(381%) hue-rotate(357deg) brightness(98%) contrast(99%)";
+    let colorCount = "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7489%) hue-rotate(237deg) brightness(104%) contrast(103%)";
 
     translate.forEach(element => {
       let speed = element.dataset.speed;
@@ -126,6 +131,8 @@ $(document).ready(function () {
         if (headerMenuBasket) { headerMenuBasket.style.filter = color9; }
         if (headerMenuBtnClose) { headerMenuBtnClose.style.filter = color9; }
       }
+      headerMenuBasketCountBlock.style.backgroundColor = colorCountBackground;
+      headerMenuBasketCountBlock.style.color = "#FFFFFF";
     });
   });
 
